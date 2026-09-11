@@ -231,7 +231,7 @@ const SpeciesSection = () => {
                   loading="lazy"
                   decoding="async"
                   className="species-illustration absolute pointer-events-none"
-                  style={{ top: '-15px', right: '-10px', filter: 'saturate(0.9) drop-shadow(2px 4px 6px rgba(0,0,0,0.1))' }}
+                  style={{ top: '-15px', right: '0px', filter: 'saturate(0.9) drop-shadow(2px 4px 6px rgba(0,0,0,0.1))' }}
                 />
               </picture>
               <h3 className="text-lg md:text-xl font-bold font-serif leading-tight mb-1 text-[#242242]">
