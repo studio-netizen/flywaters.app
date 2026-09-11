@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { X } from 'lucide-react';
+import { X, Star, Sun, Snowflake, Flower2, Leaf } from 'lucide-react';
 
 
 type Importance = 1 | 2 | 3;
@@ -10,7 +10,7 @@ type Importance = 1 | 2 | 3;
 type Insect = {
   key: string;
   order: string;
-  seasonIcons: string;
+  seasonIcons: ('spring' | 'summer' | 'autumn' | 'winter')[];
   seasonKey: string;
   importance: Importance;
   importanceKey: 'primary' | 'important' | 'secondary';
@@ -25,7 +25,7 @@ const INSECTS: Insect[] = [
   {
     key: 'mayflies',
     order: 'Ephemeroptera',
-    seasonIcons: '🌸🌞',
+    seasonIcons: ['spring', 'summer'],
     seasonKey: 'springSummer',
     importance: 3,
     importanceKey: 'primary',
@@ -37,7 +37,7 @@ const INSECTS: Insect[] = [
   {
     key: 'caddisflies',
     order: 'Trichoptera',
-    seasonIcons: '🌸🌞🍂',
+    seasonIcons: ['spring', 'summer', 'autumn'],
     seasonKey: 'yearRound',
     importance: 3,
     importanceKey: 'primary',
@@ -49,7 +49,7 @@ const INSECTS: Insect[] = [
   {
     key: 'stoneflies',
     order: 'Plecoptera',
-    seasonIcons: '❄️🌸',
+    seasonIcons: ['winter', 'spring'],
     seasonKey: 'winterSpring',
     importance: 2,
     importanceKey: 'important',
@@ -61,7 +61,7 @@ const INSECTS: Insect[] = [
   {
     key: 'trueFlies',
     order: 'Diptera',
-    seasonIcons: '🌸🌞🍂',
+    seasonIcons: ['spring', 'summer', 'autumn'],
     seasonKey: 'springSummerAutumn',
     importance: 2,
     importanceKey: 'important',
@@ -73,7 +73,7 @@ const INSECTS: Insect[] = [
   {
     key: 'terrestrials',
     order: 'variousOrders',
-    seasonIcons: '🌞',
+    seasonIcons: ['summer'],
     seasonKey: 'summer',
     importance: 2,
     importanceKey: 'important',
@@ -85,7 +85,7 @@ const INSECTS: Insect[] = [
   {
     key: 'dragonflies',
     order: 'Odonata',
-    seasonIcons: '🌞',
+    seasonIcons: ['summer'],
     seasonKey: 'summer',
     importance: 1,
     importanceKey: 'secondary',
@@ -97,7 +97,7 @@ const INSECTS: Insect[] = [
   {
     key: 'beetles',
     order: 'Coleoptera',
-    seasonIcons: '🌞',
+    seasonIcons: ['summer'],
     seasonKey: 'summer',
     importance: 1,
     importanceKey: 'secondary',
@@ -109,7 +109,7 @@ const INSECTS: Insect[] = [
   {
     key: 'alderflies',
     order: 'Megaloptera',
-    seasonIcons: '🌸',
+    seasonIcons: ['spring'],
     seasonKey: 'spring',
     importance: 2,
     importanceKey: 'important',
@@ -120,7 +120,28 @@ const INSECTS: Insect[] = [
   },
 ];
 
-const Stars = ({ n }: { n: number }) => <span aria-hidden>{'⭐'.repeat(n)}</span>;
+const Stars = ({ n }: { n: number }) => (
+  <span className="inline-flex items-center gap-0.5" aria-hidden>
+    {[1, 2, 3].map((i) => (
+      <Star
+        key={i}
+        className={`w-3 h-3 ${i <= n ? 'fill-[#242242] text-[#242242]' : 'fill-transparent text-[#242242]/25'}`}
+        strokeWidth={1.5}
+      />
+    ))}
+  </span>
+);
+
+const SEASON_ICONS = { spring: Flower2, summer: Sun, autumn: Leaf, winter: Snowflake } as const;
+
+const SeasonIcons = ({ seasons }: { seasons: Insect['seasonIcons'] }) => (
+  <span className="inline-flex items-center gap-0.5" aria-hidden>
+    {seasons.map((s) => {
+      const Icon = SEASON_ICONS[s];
+      return <Icon key={s} className="w-3.5 h-3.5" strokeWidth={1.75} />;
+    })}
+  </span>
+);
 
 const MONTH_LABELS = ['G', 'F', 'M', 'A', 'M', 'G', 'L', 'A', 'S', 'O', 'N', 'D'];
 
@@ -181,10 +202,10 @@ const EntomologySection = () => {
                     src={it.img}
                     alt={it.alt}
                     width={200}
-                    height={200}
+                    height={172}
                     loading="lazy"
                     decoding="async"
-                    className="insect-illustration mx-auto"
+                    className="insect-illustration mx-auto rounded-xl"
                     style={{ filter: 'saturate(0.9)' }}
                   />
                 </picture>
@@ -193,10 +214,10 @@ const EntomologySection = () => {
                 {t(`landing.entomology.list.${it.key}.name`)}
               </h3>
               <p className="italic text-[11px] text-[#8c8c7a] mb-2">{it.order === 'variousOrders' ? t('landing.entomology.variousOrders') : it.order}</p>
-              <div className="flex flex-wrap gap-1.5 mt-auto">
-                <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ backgroundColor: '#f0ede8', color: '#242242' }}>
-                  <span aria-hidden>{it.seasonIcons}</span>
-                  <span>{t(`landing.entomology.seasons.${it.seasonKey}`)}</span>
+              <div className="flex flex-wrap gap-1.5 mt-auto w-full">
+                <span className="inline-flex max-w-full items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ backgroundColor: '#f0ede8', color: '#242242' }}>
+                  <SeasonIcons seasons={it.seasonIcons} />
+                  <span className="truncate">{t(`landing.entomology.seasons.${it.seasonKey}`)}</span>
                 </span>
                 <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ backgroundColor: '#f0ede8', color: '#242242' }}>
                   <Stars n={it.importance} />
@@ -261,7 +282,7 @@ const EntomologySection = () => {
 
               <div className="flex flex-wrap gap-2 mb-5">
                 <span className="inline-flex items-center gap-1 text-xs font-medium px-3 py-1 rounded-full" style={{ backgroundColor: '#f0ede8', color: '#242242' }}>
-                  <span aria-hidden>{selected.seasonIcons}</span>
+                  <SeasonIcons seasons={selected.seasonIcons} />
                   <span>{t(`landing.entomology.seasons.${selected.seasonKey}`)}</span>
                 </span>
                 <span className="inline-flex items-center gap-1 text-xs font-medium px-3 py-1 rounded-full" style={{ backgroundColor: '#f0ede8', color: '#242242' }}>
