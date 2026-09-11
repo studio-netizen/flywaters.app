@@ -1,0 +1,547 @@
+{
+  "nav": {
+    "feed": "Feed",
+    "map": "Map",
+    "publish": "Publish",
+    "messages": "Messages",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "logout": "Log out",
+    "blog": "Blog",
+    "contacts": "Contact"
+  },
+  "landing": {
+    "login": "Log in",
+    "register": "Sign up",
+    "heroHeadline": "Discover and share the best fly fishing spots",
+    "heroSubheadline": "Save locations, upload your catches, and explore spots shared by other anglers",
+    "ctaExplore": "Start exploring spots",
+    "heroTagline": "Fly fishing is much more than a sport. It's reading the river, interpreting the hatches, choosing the right fly. It's connecting with nature — an art passed down through generations of passionate anglers.",
+    "everyWater": "Every water, every season",
+    "spotsForCondition": "Spots for every condition",
+    "exploreSpots": "Explore spots",
+    "ourMission": "Our mission",
+    "builtByFishers": "Built for fly fishers,\nby fly fishers",
+    "missionDesc": "Fly fishing has a deep history in Italy. From the alpine streams of Valtellina to the spring creeks of Friuli, from Val Camonica to the Tuscan-Emilian Apennines, every river has its soul and its secrets. Flywaters was born to collect this knowledge and make it available to all Italian fly fishers — from beginners to expert tyers. A no-kill community where you can share spots, techniques, patterns and catches with respect for fish and the environment.",
+    "joinCommunity": "Join the community",
+    "whatYouCanDo": "What you can do",
+    "digitalCompanion": "Your digital fishing companion",
+    "discoverSpots": "Discover spots",
+    "discoverSpotsDesc": "Find the best Italian rivers and streams for fly fishing. Read reviews from anglers who fished there, discover the species present, the best season and water conditions. From the marble trout of the Sesia to the grayling of the Brenta, every spot has its story.",
+    "shareCatches": "Share your catches",
+    "shareCatchesDesc": "Post your fishing photos, tag the spot, indicate the technique and fly used. Contribute to the collective knowledge of the community. Every documented catch is valuable data for all anglers who will come after you.",
+    "connectCommunity": "Connect with the community",
+    "connectCommunityDesc": "Get in touch with fly fishers from all over Italy. Exchange tips on patterns, mayfly and caddis hatches, river conditions. Organize trips, find fishing buddies, learn from the most experienced.",
+    "ourValue": "Our value",
+    "noKillPhilosophy": "The no-kill philosophy",
+    "noKillDesc": "No-kill is not just a rule — it's respect for the fish and the river. Every marble trout released is a trout that will grow again, that will return upstream, that another angler may encounter. On Flywaters, no-kill is a founding value: every photographed catch returns free to the water. Because the real trophy is not the fish — it's the moment.",
+    "startIn3Steps": "Start in 3 steps",
+    "howItWorks": "How it works",
+    "step1Title": "Sign up for free",
+    "step1Desc": "Create your profile in seconds. Choose your preferred fishing style — dry fly, nymph, streamer or tenkara — and start exploring right away.",
+    "step2Title": "Explore the map",
+    "step2Desc": "Navigate the interactive map of Italian spots. Filter by water type, target species and community rating. Every spot has photos, reviews and access information.",
+    "step3Title": "Share and connect",
+    "step3Desc": "Post your outings, review the spots you visited and message other anglers. Your experience enriches the entire community.",
+    "featured": "Featured",
+    "spotsWorthTrip": "Spots worth the trip",
+    "ctaTitle": "Every river tells a story.\nFind yours.",
+    "footerTagline": "Cast. Observe. Release. Respect.",
+    "seasons": {
+      "winter": "Winter",
+      "spring": "Spring",
+      "summer": "Summer",
+      "autumn": "Autumn",
+      "winterDesc": "Snow-covered alpine streams, brown trout and grayling in crystal-clear waters. You'll need warm layers and sturdy waders.",
+      "springDesc": "The season of hatches. Rivers in full flow, green meadows and the first dry flies of the year.",
+      "summerDesc": "Golden lakes at sunset, long sessions with light gear. The perfect time to explore.",
+      "autumnDesc": "Golden foliage along the streams, low and clear waters. The season of spawning char and the last hatches before winter."
+    },
+    "species": {
+      "label": "THE SPECIES",
+      "title": "What you can fly fish in Italy",
+      "subtitle": "From marble trout to grayling — discover the most sought-after species by Italian fly fishers",
+      "ctaLead": "Find spots to catch these species",
+      "ctaButton": "Explore the map",
+      "bestFlies": "Best flies",
+      "bestSeason": "Best season",
+      "bestRegions": "Best regions",
+      "searchSpots": "Find spots for {{name}}",
+      "difficulty": {
+        "easy": "Easy",
+        "intermediate": "Intermediate",
+        "technical": "Technical"
+      },
+      "habitats": {
+        "streamRiver": "Stream/River",
+        "alpineRiver": "Alpine river",
+        "lakeRiver": "Lake/River",
+        "fastRiver": "Fast river",
+        "alpineStream": "Alpine stream",
+        "alpineLake": "Alpine lake",
+        "lakeSlowRiver": "Lake/Slow river",
+        "river": "River"
+      },
+      "months": {
+        "monthsMarchOct": "March - October",
+        "monthsAprSep": "April - September",
+        "monthsAllYear": "All year round",
+        "monthsMayOct": "May - October",
+        "monthsJuneSep": "June - September",
+        "monthsJulySep": "July - September",
+        "monthsOctApr": "October - April",
+        "monthsMayAug": "May - August",
+        "monthsAprOct": "April - October"
+      },
+      "regions": {
+        "regionsAlpsApennines": "Alps, Apennines, spring creeks",
+        "regionsFriuliVeneto": "Friuli, Veneto, Trentino, Lombardy",
+        "regionsAllItaly": "All of Italy, lakes and reserves",
+        "regionsTrentinoFriuli": "Trentino, Friuli, Veneto",
+        "regionsHighAlps": "High alpine valleys, Aosta Valley, Trentino",
+        "regionsHighAlpineLakes": "High-altitude Alpine lakes",
+        "regionsPoLakes": "Po basin, pre-Alpine lakes",
+        "regionsCentralNorthItaly": "Central and northern Italy",
+        "regionsLargeRivers": "Large rivers: Po, Adda, Ticino, Tiber",
+        "regionsLowlands": "Po valley lowlands, lakes and canals"
+      },
+      "list": {
+        "brownTrout": {
+          "name": "Brown Trout",
+          "desc": "The most common trout in Italian rivers. Responds well to dry fly during spring hatches."
+        },
+        "marbleTrout": {
+          "name": "Marble Trout",
+          "desc": "Endemic to the Po basin. Can exceed 10kg, it is the most coveted catch for Italian fly fishers."
+        },
+        "rainbowTrout": {
+          "name": "Rainbow Trout",
+          "desc": "Introduced from North America, it is the ideal species for those starting fly fishing."
+        },
+        "grayling": {
+          "name": "Grayling",
+          "desc": "The dry fly fish par excellence. Its explosive surface rises are unforgettable."
+        },
+        "brookTrout": {
+          "name": "Brook Trout",
+          "desc": "Lives in the coldest and cleanest Alpine waters. Extraordinary colors, powerful fight."
+        },
+        "arcticChar": {
+          "name": "Arctic Char",
+          "desc": "Inhabitant of high-altitude Alpine lakes. Requires specific techniques and long hikes."
+        },
+        "pike": {
+          "name": "Pike",
+          "desc": "The apex predator of Italian waters. Caught with large streamers."
+        },
+        "chub": {
+          "name": "Chub",
+          "desc": "Often underestimated, the chub is an excellent dry fly fish during summer months."
+        },
+        "barbel": {
+          "name": "Barbel",
+          "desc": "Bottom-dwelling fish that responds well to heavy nymphs. Tenacious and resilient fighter."
+        },
+        "carp": {
+          "name": "Carp",
+          "desc": "Sight fishing for carp is one of the most exciting fly fishing challenges in the lowlands."
+        }
+      }
+    },
+    "entomology": {
+      "label": "ENTOMOLOGY",
+      "title": "Know the insects, catch more fish",
+      "subtitle": "Fly fishing is the art of imitating nature. Discover the insects that trigger rises.",
+      "ctaLead": "Match the insects to the right flies — explore the spots",
+      "ctaButton": "Go to the map",
+      "recommendedFlies": "Recommended flies to imitate them",
+      "hatchPeriod": "Hatch period in Italy",
+      "searchHatches": "Find spots with active hatches",
+      "variousOrders": "Various orders",
+      "seasons": {
+        "spring": "Spring",
+        "summer": "Summer",
+        "autumn": "Autumn",
+        "winter": "Winter",
+        "springSummer": "Spring/Summer",
+        "winterSpring": "Winter/Spring",
+        "springSummerAutumn": "Spring/Summer/Autumn",
+        "yearRound": "Year round"
+      },
+      "importance": {
+        "primary": "Essential",
+        "important": "Important",
+        "secondary": "Secondary"
+      },
+      "list": {
+        "mayflies": {
+          "name": "Mayflies",
+          "lifeCycle": "The queens of dry fly fishing. Their hatches trigger the most spectacular rises. The life cycle lasts one to three years: aquatic nymph, sub-imago (dun) and flying imago (spinner) that lives only a few hours to reproduce."
+        },
+        "caddisflies": {
+          "name": "Caddisflies",
+          "lifeCycle": "Present year-round, they are the main food source for trout and grayling. Larvae build protective cases from pebbles or plant debris, then emerge as pupae and adults in mass on summer evenings."
+        },
+        "stoneflies": {
+          "name": "Stoneflies",
+          "lifeCycle": "Indicators of clean water. Their winter hatches are crucial for grayling. Nymphs live for up to three years under the rocks of well-oxygenated currents before crawling onto the bank to emerge."
+        },
+        "trueFlies": {
+          "name": "True Flies",
+          "lifeCycle": "Chironomids and simulids — often ignored but responsible for the most difficult rises. They hatch in large numbers on the surface, forcing fish into extreme selectivity on tiny imitations."
+        },
+        "terrestrials": {
+          "name": "Terrestrials",
+          "lifeCycle": "Ants, grasshoppers, caterpillars — fall into the water in summer and trigger sudden rises. They have no aquatic cycle but become protagonists during warm winds and summer storms."
+        },
+        "dragonflies": {
+          "name": "Dragonflies",
+          "lifeCycle": "Dragonfly nymphs are an important prey for pike and large trout. They live for up to two years on the bottom of lakes and still waters, actively preying on tadpoles and small fish."
+        },
+        "beetles": {
+          "name": "Beetles",
+          "lifeCycle": "Aquatic beetles are often overlooked but can trigger selective rises. They live both in water (diving beetles) and on land, ending up in rivers blown by wind or fallen from riparian vegetation."
+        },
+        "alderflies": {
+          "name": "Alderflies",
+          "lifeCycle": "Their aquatic larvae are among the most imitated nymphs by fly tiers. They live for over a year in mud and among rocks, then emerge in spring as slow, clumsy-flying adults."
+        }
+      }
+    }
+  },
+  "feed": {
+    "forYou": "For you",
+    "following": "Following",
+    "noCatches": "No catches yet",
+    "beFirst": "Be the first to share your fishing adventure!",
+    "noFollowingPosts": "No posts from people you follow",
+    "followOthers": "Follow other anglers to see their posts here",
+    "suggestedAnglers": "Suggested anglers",
+    "suggestedForYou": "Suggested for you",
+    "follow": "Follow",
+    "followingBtn": "Following",
+    "likes": "likes",
+    "linkCopied": "Link copied!",
+    "checkThisPost": "Check out this post!"
+  },
+  "auth": {
+    "login": "Log in",
+    "register": "Sign up",
+    "forgotPassword": "Forgot password?",
+    "alreadyHaveAccount": "Already have an account?",
+    "noAccountYet": "Don't have an account?",
+    "createAccount": "Create account",
+    "requestGuideBadge": "Request the Guide Badge — only for certified fly fishing guides.",
+    "acceptTermsPrefix": "I have read and accept the",
+    "and": "and the",
+    "cookiePolicy": "Cookie Policy",
+    "privacyPolicy": "Privacy Policy",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "fullName": "Full name",
+    "loading": "Loading...",
+    "welcome": "Welcome back!",
+    "checkEmail": "Check your email to confirm your account!",
+    "passwordsDontMatch": "Passwords don't match",
+    "or": "or",
+    "welcomeBack": "Welcome back",
+    "createYourAccount": "Create your account",
+    "loginToContinue": "Log in to continue",
+    "joinTheCommunity": "Join the community",
+    "loginToSee": "Log in to see"
+  },
+  "messages": {
+    "title": "Messages",
+    "typeMessage": "Type a message...",
+    "noMessages": "No messages yet",
+    "startConversation": "Start a conversation!",
+    "newMessage": "New message",
+    "searchUser": "Search for a user...",
+    "noUserFound": "No user found",
+    "send": "Send",
+    "findAnglers": "Find anglers →",
+    "seen": "Seen",
+    "sent": "Sent",
+    "now": "now",
+    "yesterday": "yesterday",
+    "typing": "typing…",
+    "newMessages": "New messages"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "likedYourPost": "liked your post",
+    "commentedYourPost": "commented on your post",
+    "startedFollowing": "started following you",
+    "reviewedSpot": "reviewed a spot you follow",
+    "sentMessage": "sent you a message",
+    "reportApproved": "Your environmental report was approved. Thank you for protecting our waters!",
+    "interacted": "interacted with you",
+    "noNotifications": "No notifications yet",
+    "willAppearHere": "Notifications will appear here",
+    "markRead": "Mark read",
+    "markAllRead": "Mark all as read",
+    "dismiss": "Dismiss",
+    "someone": "Someone"
+  },
+  "profile": {
+    "editProfile": "Edit profile",
+    "fishingType": "Fishing type",
+    "reviewedSpots": "Reviewed spots",
+    "noPosts": "No posts yet",
+    "noReviews": "No reviews yet",
+    "message": "Message",
+    "back": "Back",
+    "displayName": "Display name",
+    "yourName": "Your name",
+    "username": "Username",
+    "bio": "Bio",
+    "bioPlaceholder": "Tell us about yourself, your favourite rivers, your technique...",
+    "bioHelp": "A short introduction (max 150 characters)",
+    "save": "Save",
+    "saving": "Saving...",
+    "changePhoto": "Change photo",
+    "profileUpdated": "Profile updated!",
+    "imageTooLarge": "Image must be less than 5MB",
+    "noFollowers": "No followers",
+    "notFollowingAnyone": "Not following anyone",
+    "posts": "Posts",
+    "followers": "Followers",
+    "following": "Following",
+    "emptyPostsTitleOwn": "Start your journey",
+    "emptyPostsDescOwn": "Share your first catch or fishing trip to start building your story.",
+    "shareFirstCatch": "Share your first post",
+    "emptyPostsTitleOther": "No posts yet",
+    "emptyPostsDescOther": "This angler hasn't shared any catches yet.",
+    "emptyReviewsTitleOwn": "Explore the spots",
+    "emptyReviewsDescOwn": "Visit the map, review the rivers you fished and help the community.",
+    "exploreSpots": "Explore the map",
+    "emptyReviewsTitleOther": "No reviews",
+    "emptyReviewsDescOther": "This angler hasn't reviewed any spots yet.",
+    "instagram": "Instagram",
+    "website": "Website",
+    "userSpots": "Shared spots"
+  },
+  "posts": {
+    "addCaption": "Add a caption...",
+    "fishSpecies": "Fish species",
+    "gearUsed": "Gear used",
+    "fishingTechnique": "Fishing technique",
+    "saveChanges": "Save changes",
+    "deletePost": "Delete post",
+    "editPost": "Edit post",
+    "publish": "Publish",
+    "publishing": "Publishing...",
+    "newPost": "New post",
+    "caption": "Caption",
+    "describeCapture": "Describe your catch...",
+    "location": "Location",
+    "addLocation": "Add location",
+    "searchLocation": "Search location...",
+    "cancel": "Cancel",
+    "tapToAddPhoto": "Tap to add a photo",
+    "public": "Public",
+    "visibleToAll": "Visible to all",
+    "followersOnly": "Followers only",
+    "postPublished": "Post published!",
+    "postUpdated": "Post updated!",
+    "postDeleted": "Post deleted",
+    "shareCapture": "Share your catch",
+    "uploading": "Uploading...",
+    "saving": "Saving...",
+    "deleteConfirmTitle": "Delete post",
+    "deleteConfirmDesc": "Are you sure you want to delete this post? This action cannot be undone.",
+    "cancelBtn": "Cancel",
+    "deleteBtn": "Delete",
+    "deleting": "Deleting...",
+    "preview": "Preview",
+    "postNotFound": "Post not found",
+    "postNotFoundDesc": "This post may have been removed or the link is invalid.",
+    "backToFeed": "Back to feed",
+    "fishingPost": "Fishing post",
+    "showAllComments": "Show all {{count}} comments",
+    "addComment": "Add a comment...",
+    "commentError": "Error sending comment",
+    "loginToPublish": "Log in to publish"
+  },
+  "map": {
+    "title": "Spot Map",
+    "exploreMap": "Explore the map",
+    "addSpot": "Add spot",
+    "spotName": "Spot name",
+    "spotType": "Type",
+    "lake": "Lake",
+    "river": "River",
+    "stream": "Stream",
+    "sea": "Sea",
+    "allTypes": "All types",
+    "description": "Description",
+    "describeSpot": "Describe the spot...",
+    "speciesPresent": "Species present",
+    "accessInfo": "Access information",
+    "accessPlaceholder": "How to reach the spot, parking, permits...",
+    "photos": "Photos (optional)",
+    "addNewSpot": "Add new fishing spot",
+    "spotAdded": "Spot added!",
+    "saving": "Saving...",
+    "seeDetails": "See details",
+    "position": "Location",
+    "searchPlace": "Search location, river, lake...",
+    "hatchActivity": "Active hatches",
+    "hatchAll": "All hatches",
+    "legend": "Legend",
+    "reportIssue": "Report issue",
+    "reportTitle": "Report an environmental issue",
+    "reportType": "Report type",
+    "reportPollution": "Pollution",
+    "reportPoaching": "Poaching",
+    "reportOther": "Other",
+    "reportDescription": "Description",
+    "reportDescPlaceholder": "Describe what you observed...",
+    "reportLocationHelp": "Tap the map or search to set the location",
+    "reportPhoto": "Photo (optional)",
+    "reportSubmit": "Send report",
+    "reportSending": "Sending...",
+    "reportSent": "Report sent to admins for review. Thank you for protecting our waters!",
+    "reportError": "Error sending the report",
+    "reportLegend": "Approved report",
+    "sortBy": "Sort",
+    "sortRecent": "Most recent",
+    "sortMostLiked": "Most liked",
+    "sortMostReviewed": "Most reviewed"
+  },
+  "badges": {
+    "explorer": "Explorer",
+    "sentinel": "Sentinel"
+  },
+  "spot": {
+    "position": "Location",
+    "fishSpecies": "Fish species",
+    "access": "Access",
+    "writeReview": "Write a review",
+    "yourRating": "Your rating",
+    "shareExperience": "Share your experience at this spot...",
+    "submitReview": "Submit review",
+    "submitting": "Submitting...",
+    "reviewSubmitted": "Review submitted",
+    "selectRating": "Select a rating",
+    "loginToReview": "Log in to leave a review",
+    "reviews": "Reviews",
+    "noReviews": "No reviews yet. Be the first to share your experience.",
+    "spotNotFound": "Spot not found",
+    "backToMap": "Back to map",
+    "avgRating": "Average rating",
+    "angler": "Angler"
+  },
+  "blog": {
+    "theBlog": "The Blog",
+    "readMore": "Read more",
+    "readingTime": "reading time",
+    "relatedArticles": "Related articles",
+    "shareArticle": "Share this article",
+    "copied": "Copied!",
+    "copyLink": "Copy link",
+    "discoverSpots": "Discover spots on Flywaters",
+    "exploreMapShare": "Explore the map, share your catches and connect with the community.",
+    "registerFree": "Join for free"
+  },
+  "contact": {
+    "title": "Contact",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "phone": "Phone",
+    "region": "Region",
+    "selectRegion": "Select region",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending...",
+    "thankYou": "Thank you for writing to us!",
+    "willReply": "We'll reply within 24 hours.",
+    "error": "Error",
+    "errorDesc": "An error occurred. Please try again or write to info@flywaters.app"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! Page not found",
+    "backHome": "Back to home"
+  },
+  "seo": {
+    "defaultTitle": "Flywaters — The Italian Fly Fishing Community",
+    "defaultDescription": "Discover the best fly fishing spots in Italy, share your catches and connect with anglers. Flywaters is the no-kill community for fly fishing enthusiasts."
+  },
+  "mapGate": {
+    "title": "EXPLORE ITALY'S BEST SPOTS",
+    "description": "To protect our rivers and share precise coordinates, Flywaters is a private community. Register for free to unlock the full map, fly suggestions, and real-time water levels.",
+    "ctaJoin": "Join the Community (Free)",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginHere": "Login here",
+    "close": "Close"
+  },
+  "guide": {
+    "tooltip": "Flywaters Certified Guide",
+    "applyBadge": "Apply for Guide Badge",
+    "registerCheckbox": "Are you a professional guide? Request the badge"
+  },
+  "resetPassword": {
+    "title": "Reset password",
+    "subtitle": "Enter your new password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm new password",
+    "updatePassword": "Update password",
+    "updating": "Updating...",
+    "success": "Password updated successfully!",
+    "redirecting": "Redirecting to login...",
+    "error": "Error updating password",
+    "sending": "Sending recovery email...",
+    "enterEmail": "Please enter your email first",
+    "emailSent": "Recovery email sent! Check your inbox.",
+    "invalidLink": "Invalid or expired recovery link",
+    "passwordTooShort": "Password must be at least 6 characters"
+  },
+  "common": {
+    "fishingTypes": {
+      "fly-fishing": "🎣 Fly fishing",
+      "spinning": "🔄 Spinning",
+      "baitcasting": "🎯 Baitcasting",
+      "surfcasting": "🌊 Surfcasting",
+      "ice-fishing": "🧊 Ice fishing"
+    },
+    "searchUsers": "Search anglers..."
+  },
+  "emptyStates": {
+    "notificationsTitle": "No notifications yet",
+    "notificationsDesc": "When someone likes, comments, or follows you, you'll see it here.",
+    "notificationsCta": "Explore the map",
+    "feedTitle": "The feed is quiet",
+    "feedDesc": "Be the first to share a catch or report a spot to spark the community.",
+    "feedCta": "Report a spot",
+    "savedTitle": "No saved posts",
+    "savedDesc": "Tap the bookmark on posts that inspire you. You'll find them here.",
+    "savedCta": "Browse the feed",
+    "messagesTitle": "No conversations",
+    "messagesDesc": "Start chatting with other anglers: search a profile and break the ice.",
+    "messagesCta": "Find anglers",
+    "postsOwnTitle": "Share your first catch",
+    "postsOwnDesc": "A photo, the location, and your technique — contribute to the community.",
+    "postsOwnCta": "Create your first post"
+  },
+  "fab": {
+    "open": "Open quick actions",
+    "close": "Close quick actions",
+    "newPost": "New post",
+    "shareSpot": "Share spot",
+    "report": "Report issue"
+  },
+  "upload": {
+    "uploading": "Uploading",
+    "processing": "Optimizing photo..."
+  },
+  "network": {
+    "weakSignal": "Weak signal detected",
+    "retrying": "Retrying...",
+    "offline": "You are offline. Some features may not work.",
+    "backOnline": "Connection restored"
+  }
+}

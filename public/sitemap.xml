@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Static routes -->
+  <url><loc>https://flywaters.app/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://flywaters.app/mappa</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://flywaters.app/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://flywaters.app/contatti</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://flywaters.app/fly-fishing-guide-italy</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://flywaters.app/auth</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+
+  <!-- Regional landing pages -->
+  <url><loc>https://flywaters.app/fly-fishing-italy</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://flywaters.app/fly-fishing-italy/lombardia</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://flywaters.app/fly-fishing-italy/trentino-alto-adige</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://flywaters.app/fly-fishing-italy/friuli-venezia-giulia</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://flywaters.app/fly-fishing-italy/veneto</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://flywaters.app/fly-fishing-italy/piemonte</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://flywaters.app/fly-fishing-italy/emilia-romagna</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://flywaters.app/fly-fishing-italy/toscana</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://flywaters.app/fly-fishing-italy/umbria</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://flywaters.app/fly-fishing-italy/valle-d-aosta</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://flywaters.app/fly-fishing-italy/liguria</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Blog articles (dynamic, from DB) -->
+  <url><loc>https://flywaters.app/blog/migliori-spot-pesca-mosca-italia</loc><lastmod>2026-04-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://flywaters.app/blog/guida-trota-marmorata-temolo</loc><lastmod>2026-04-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://flywaters.app/blog/guida-attrezzatura-pesca-mosca</loc><lastmod>2026-04-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Spots (dynamic, from DB) -->
+  <url><loc>https://flywaters.app/spot/8b3c1f57-186c-4166-b25b-04f670299b58</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://flywaters.app/spot/6ebcc723-65fc-4b2c-aeaa-e98b13ff126a</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://flywaters.app/spot/a68c9afb-7f15-49ec-a2bf-6f5222d844a4</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://flywaters.app/spot/463bf5f1-da77-4f1d-a0ee-f2591a66268c</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://flywaters.app/spot/98046df0-1e48-4e93-be3d-4516f057d68f</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://flywaters.app/spot/c13e0c01-bf95-4422-b40c-04f49e2324aa</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://flywaters.app/spot/3a8db26a-9d61-45f2-82dd-c1dfd254f42d</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://flywaters.app/spot/9d7ceea0-7665-42a5-a8ac-4f3c2006d788</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://flywaters.app/spot/7620a391-6272-455f-a2f5-5ecc8c0e24d7</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://flywaters.app/spot/9d011bea-2ce5-44ad-99b5-ae7de3c3eba9</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://flywaters.app/spot/3ca84e91-5017-4dff-bd03-ed8b7aa3f57f</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://flywaters.app/spot/40eb9992-3c08-45ca-ad45-2a4745073d9e</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+</urlset>

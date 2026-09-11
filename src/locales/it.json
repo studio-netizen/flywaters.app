@@ -1,0 +1,547 @@
+{
+  "nav": {
+    "feed": "Feed",
+    "map": "Mappa",
+    "publish": "Pubblica",
+    "messages": "Messaggi",
+    "notifications": "Notifiche",
+    "profile": "Profilo",
+    "logout": "Esci",
+    "blog": "Blog",
+    "contacts": "Contatti"
+  },
+  "landing": {
+    "login": "Accedi",
+    "register": "Registrati",
+    "heroHeadline": "Scopri e condividi i migliori spot di pesca a mosca",
+    "heroSubheadline": "Salva le posizioni, carica le tue catture ed esplora gli spot condivisi da altri pescatori",
+    "ctaExplore": "Inizia a esplorare gli spot",
+    "heroTagline": "Pescare a mosca è molto più di uno sport. È leggere il fiume, interpretare le schiuse, scegliere la mosca giusta. È entrare in sintonia con la natura — un'arte tramandata da generazioni di pescatori appassionati.",
+    "everyWater": "Ogni acqua, ogni stagione",
+    "spotsForCondition": "Spot per ogni condizione",
+    "exploreSpots": "Esplora gli spot",
+    "ourMission": "La nostra missione",
+    "builtByFishers": "Creato dai pescatori\na mosca, per i pescatori a mosca",
+    "missionDesc": "La pesca a mosca ha una storia profonda in Italia. Dai torrenti alpini della Valtellina ai fiumi di risorgiva del Friuli, dalla Val Camonica all'Appennino tosco-emiliano, ogni fiume ha la sua anima e i suoi segreti. Flywaters nasce per raccogliere questa conoscenza e metterla a disposizione di tutti i fly fisher italiani — dagli appassionati alle prime armi ai costruttori esperti. Una community no-kill dove condividere spot, tecniche, montaggi e catture nel rispetto del pesce e dell'ambiente.",
+    "joinCommunity": "Unisciti alla community",
+    "whatYouCanDo": "Cosa puoi fare",
+    "digitalCompanion": "La tua compagna di pesca digitale",
+    "discoverSpots": "Scopri gli spot",
+    "discoverSpotsDesc": "Trova i migliori fiumi e torrenti italiani per la pesca a mosca. Leggi le recensioni di chi ha pescato lì, scopri le specie presenti, il periodo migliore e le condizioni dell'acqua. Dalla trota marmorata del Sesia al temolo del Brenta, ogni spot ha la sua storia.",
+    "shareCatches": "Condividi le tue catture",
+    "shareCatchesDesc": "Pubblica le tue foto di pesca, tagga lo spot, indica la tecnica e la mosca usata. Contribuisci alla conoscenza collettiva della community. Ogni cattura documentata è un dato prezioso per tutti i pescatori che verranno dopo di te.",
+    "connectCommunity": "Connettiti con la community",
+    "connectCommunityDesc": "Entra in contatto con fly fisher di tutta Italia. Scambia consigli sui montaggi, sulle schiuse di effimere e tricotteri, sulle condizioni dei fiumi. Organizza uscite, trova compagni di pesca, impara dai più esperti.",
+    "ourValue": "Il nostro valore",
+    "noKillPhilosophy": "La filosofia no-kill",
+    "noKillDesc": "Il no-kill non è solo una regola — è il rispetto per il pesce e per il fiume. Ogni trota marmorata rilasciata è una trota che crescerà ancora, che tornerà a risalire il fiume, che un altro pescatore potrà incontrare. Su Flywaters il no-kill è un valore fondante: ogni cattura fotografata torna libera nell'acqua. Perché il vero trofeo non è il pesce — è il momento.",
+    "startIn3Steps": "Inizia in 3 passi",
+    "howItWorks": "Come funziona",
+    "step1Title": "Registrati gratis",
+    "step1Desc": "Crea il tuo profilo in pochi secondi. Indica il tuo stile di pesca preferito — mosca secca, ninfa, streamer o tenkara — e inizia subito a esplorare.",
+    "step2Title": "Esplora la mappa",
+    "step2Desc": "Naviga la mappa interattiva degli spot italiani. Filtra per tipo di acqua, specie target e valutazione della community. Ogni spot ha foto, recensioni e informazioni di accesso.",
+    "step3Title": "Condividi e connettiti",
+    "step3Desc": "Pubblica le tue uscite, recensisci gli spot che hai visitato e messaggia con altri pescatori. La tua esperienza arricchisce tutta la community.",
+    "featured": "In evidenza",
+    "spotsWorthTrip": "Spot che valgono il viaggio",
+    "ctaTitle": "Ogni fiume racconta una storia.\nTrova la tua.",
+    "footerTagline": "Lancia. Osserva. Rilascia. Rispetta.",
+    "seasons": {
+      "winter": "Inverno",
+      "spring": "Primavera",
+      "summer": "Estate",
+      "autumn": "Autunno",
+      "winterDesc": "Torrenti alpini innevati, trote fario e temoli in acque cristalline. Servono strati caldi e wader robusti.",
+      "springDesc": "La stagione delle schiuse. Fiumi in piena, prati verdi e le prime mosche secche dell'anno.",
+      "summerDesc": "Laghi dorati al tramonto, sessioni lunghe con attrezzatura leggera. Il momento perfetto per esplorare.",
+      "autumnDesc": "Fogliame dorato lungo i torrenti, acque basse e trasparenti. La stagione dei salmerini in frega e delle ultime schiuse prima dell'inverno."
+    },
+    "species": {
+      "label": "LE SPECIE",
+      "title": "Cosa puoi pescare a mosca in Italia",
+      "subtitle": "Dalla trota marmorata al temolo — scopri le specie più ambite dai fly fisher italiani",
+      "ctaLead": "Trova spot dove pescare queste specie",
+      "ctaButton": "Esplora la mappa",
+      "bestFlies": "Mosche consigliate",
+      "bestSeason": "Stagione migliore",
+      "bestRegions": "Regioni migliori",
+      "searchSpots": "Cerca spot per {{name}}",
+      "difficulty": {
+        "easy": "Facile",
+        "intermediate": "Intermedio",
+        "technical": "Tecnico"
+      },
+      "habitats": {
+        "streamRiver": "Torrente/Fiume",
+        "alpineRiver": "Fiume alpino",
+        "lakeRiver": "Lago/Fiume",
+        "fastRiver": "Fiume veloce",
+        "alpineStream": "Torrente alpino",
+        "alpineLake": "Lago alpino",
+        "lakeSlowRiver": "Lago/Fiume lento",
+        "river": "Fiume"
+      },
+      "months": {
+        "monthsMarchOct": "Marzo - Ottobre",
+        "monthsAprSep": "Aprile - Settembre",
+        "monthsAllYear": "Tutto l'anno",
+        "monthsMayOct": "Maggio - Ottobre",
+        "monthsJuneSep": "Giugno - Settembre",
+        "monthsJulySep": "Luglio - Settembre",
+        "monthsOctApr": "Ottobre - Aprile",
+        "monthsMayAug": "Maggio - Agosto",
+        "monthsAprOct": "Aprile - Ottobre"
+      },
+      "regions": {
+        "regionsAlpsApennines": "Alpi, Appennini, fiumi di risorgiva",
+        "regionsFriuliVeneto": "Friuli, Veneto, Trentino, Lombardia",
+        "regionsAllItaly": "Tutta Italia, laghi e riserve",
+        "regionsTrentinoFriuli": "Trentino, Friuli, Veneto",
+        "regionsHighAlps": "Alte valli alpine, Valle d'Aosta, Trentino",
+        "regionsHighAlpineLakes": "Laghi d'alta quota delle Alpi",
+        "regionsPoLakes": "Bacino del Po, laghi prealpini",
+        "regionsCentralNorthItaly": "Italia centro-settentrionale",
+        "regionsLargeRivers": "Grandi fiumi: Po, Adda, Ticino, Tevere",
+        "regionsLowlands": "Pianura Padana, laghi e canali"
+      },
+      "list": {
+        "brownTrout": {
+          "name": "Trota Fario",
+          "desc": "La trota più diffusa nei fiumi italiani. Risponde bene alla mosca secca durante le schiuse primaverili."
+        },
+        "marbleTrout": {
+          "name": "Trota Marmorata",
+          "desc": "Endemica del bacino del Po. Può superare i 10kg, è la preda più ambita dai fly fisher italiani."
+        },
+        "rainbowTrout": {
+          "name": "Trota Iridea",
+          "desc": "Introdotta dall'America del Nord, è la specie ideale per chi inizia la pesca a mosca."
+        },
+        "grayling": {
+          "name": "Temolo",
+          "desc": "Il pesce della mosca secca per eccellenza. Le sue alzate esplosive in superficie sono indimenticabili."
+        },
+        "brookTrout": {
+          "name": "Salmerino di Fonte",
+          "desc": "Vive nelle acque più fredde e pulite delle Alpi. Colori straordinari, combattimento potente."
+        },
+        "arcticChar": {
+          "name": "Salmerino Alpino",
+          "desc": "Abitante dei laghi alpini d'alta quota. Richiede tecniche specifiche e lunghe camminate."
+        },
+        "pike": {
+          "name": "Luccio",
+          "desc": "Il predatore per eccellenza delle acque italiane. Si cattura con streamer di grandi dimensioni."
+        },
+        "chub": {
+          "name": "Cavedano",
+          "desc": "Spesso sottovalutato, il cavedano è un ottimo pesce da mosca secca nei mesi estivi."
+        },
+        "barbel": {
+          "name": "Barbo",
+          "desc": "Pesce di fondo che risponde bene alle ninfe pesanti. Combattente tenace e resistente."
+        },
+        "carp": {
+          "name": "Carpa",
+          "desc": "Il sight fishing alla carpa è una delle sfide più emozionanti della pesca a mosca in pianura."
+        }
+      }
+    },
+    "entomology": {
+      "label": "ENTOMOLOGIA",
+      "title": "Conosci gli insetti, cattura più pesci",
+      "subtitle": "La pesca a mosca è l'arte di imitare la natura. Scopri gli insetti che fanno scattare le alzate.",
+      "ctaLead": "Abbina gli insetti alle mosche giuste — esplora gli spot",
+      "ctaButton": "Vai alla mappa",
+      "recommendedFlies": "Mosche consigliate per imitarli",
+      "hatchPeriod": "Periodo di schiusa in Italia",
+      "searchHatches": "Cerca spot con schiuse attive",
+      "variousOrders": "Vari ordini",
+      "seasons": {
+        "spring": "Primavera",
+        "summer": "Estate",
+        "autumn": "Autunno",
+        "winter": "Inverno",
+        "springSummer": "Primavera/Estate",
+        "winterSpring": "Inverno/Primavera",
+        "springSummerAutumn": "Primavera/Estate/Autunno",
+        "yearRound": "Tutto l'anno"
+      },
+      "importance": {
+        "primary": "Fondamentale",
+        "important": "Importante",
+        "secondary": "Secondario"
+      },
+      "list": {
+        "mayflies": {
+          "name": "Effimere",
+          "lifeCycle": "Le regine della pesca a mosca secca. Le loro schiuse scatenano le alzate più spettacolari. Il ciclo dura da uno a tre anni: ninfa acquatica, sub-imago (dun) e imago (spinner) volanti che vivono solo poche ore per riprodursi."
+        },
+        "caddisflies": {
+          "name": "Tricotteri",
+          "lifeCycle": "Presenti tutto l'anno, sono la principale fonte di cibo per trote e temoli. Le larve costruiscono astucci protettivi di sassolini o detriti vegetali, poi schiudono in pupa e adulto in massa nelle sere d'estate."
+        },
+        "stoneflies": {
+          "name": "Plecotteri",
+          "lifeCycle": "Indicatori di acque pulite. Le loro schiuse invernali sono fondamentali per il temolo. Le ninfe vivono fino a tre anni sotto i sassi delle correnti più ossigenate prima di emergere strisciando sulla riva."
+        },
+        "trueFlies": {
+          "name": "Ditteri",
+          "lifeCycle": "Chironomidi e simulidi — spesso ignorati ma responsabili delle alzate più difficili. Schiudono in superficie in grandi quantità, costringendo i pesci a una selettività estrema su imitazioni minute."
+        },
+        "terrestrials": {
+          "name": "Terrestri",
+          "lifeCycle": "Formiche, cavallette, bruchi — cadono in acqua nei mesi estivi e scatenano alzate improvvise. Non hanno un ciclo acquatico, ma diventano protagonisti durante venti caldi e temporali estivi."
+        },
+        "dragonflies": {
+          "name": "Libellule",
+          "lifeCycle": "Le ninfe di libellula sono una preda importante per lucci e trote di grossa taglia. Vivono fino a due anni sul fondo di laghi e acque ferme, predando attivamente girini e piccoli pesci."
+        },
+        "beetles": {
+          "name": "Coleotteri",
+          "lifeCycle": "I coleotteri acquatici sono spesso ignorati ma possono scatenare alzate selettive. Vivono sia in acqua (ditiscidi) sia a terra, finendo nei fiumi spinti dal vento o dalla vegetazione riparia."
+        },
+        "alderflies": {
+          "name": "Megalotteri",
+          "lifeCycle": "Le loro larve acquatiche sono tra le ninfe più imitate dai costruttori di mosche. Vivono per oltre un anno nel fango e tra i sassi, poi emergono in primavera come adulti dal volo lento e maldestro."
+        }
+      }
+    }
+  },
+  "feed": {
+    "forYou": "Per te",
+    "following": "Seguiti",
+    "noCatches": "Nessuna cattura ancora",
+    "beFirst": "Sii il primo a condividere la tua avventura di pesca!",
+    "noFollowingPosts": "Nessun post dai tuoi seguiti",
+    "followOthers": "Segui altri pescatori per vedere i loro post qui",
+    "suggestedAnglers": "Pescatori suggeriti",
+    "suggestedForYou": "Suggeriti per te",
+    "follow": "Segui",
+    "followingBtn": "Seguendo",
+    "likes": "Mi piace",
+    "linkCopied": "Link copiato!",
+    "checkThisPost": "Guarda questo post!"
+  },
+  "auth": {
+    "login": "Accedi",
+    "register": "Registrati",
+    "forgotPassword": "Password dimenticata?",
+    "alreadyHaveAccount": "Hai già un account?",
+    "noAccountYet": "Non hai ancora un account?",
+    "createAccount": "Crea account",
+    "requestGuideBadge": "Richiedi il Badge Guida — solo per guide di pesca a mosca certificate.",
+    "acceptTermsPrefix": "Ho letto e accetto la",
+    "and": "e la",
+    "cookiePolicy": "Cookie Policy",
+    "privacyPolicy": "Privacy Policy",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Conferma password",
+    "firstName": "Nome",
+    "lastName": "Cognome",
+    "fullName": "Nome completo",
+    "loading": "Caricamento...",
+    "welcome": "Bentornato!",
+    "checkEmail": "Controlla la tua email per confermare l'account!",
+    "passwordsDontMatch": "Le password non corrispondono",
+    "or": "oppure",
+    "welcomeBack": "Bentornato",
+    "createYourAccount": "Crea il tuo account",
+    "loginToContinue": "Accedi per continuare",
+    "joinTheCommunity": "Unisciti alla community",
+    "loginToSee": "Accedi per vedere"
+  },
+  "messages": {
+    "title": "Messaggi",
+    "typeMessage": "Scrivi un messaggio...",
+    "noMessages": "Nessun messaggio ancora",
+    "startConversation": "Inizia una conversazione!",
+    "newMessage": "Nuovo messaggio",
+    "searchUser": "Cerca un utente...",
+    "noUserFound": "Nessun utente trovato",
+    "send": "Invia",
+    "findAnglers": "Trova pescatori →",
+    "seen": "Visto",
+    "sent": "Inviato",
+    "now": "ora",
+    "yesterday": "ieri",
+    "typing": "sta scrivendo…",
+    "newMessages": "Nuovi messaggi"
+  },
+  "notifications": {
+    "title": "Notifiche",
+    "likedYourPost": "ha messo Mi piace al tuo post",
+    "commentedYourPost": "ha commentato il tuo post",
+    "startedFollowing": "ha iniziato a seguirti",
+    "reviewedSpot": "ha recensito uno spot che segui",
+    "sentMessage": "ti ha inviato un messaggio",
+    "reportApproved": "La tua segnalazione è stata approvata. Grazie per proteggere le acque!",
+    "interacted": "ha interagito con te",
+    "noNotifications": "Nessuna notifica ancora",
+    "willAppearHere": "Le notifiche appariranno qui",
+    "markRead": "Segna lette",
+    "markAllRead": "Segna tutte come lette",
+    "dismiss": "Rimuovi",
+    "someone": "Qualcuno"
+  },
+  "profile": {
+    "editProfile": "Modifica profilo",
+    "fishingType": "Tipo di pesca",
+    "reviewedSpots": "Spot recensiti",
+    "noPosts": "Nessun post ancora",
+    "noReviews": "Nessuna recensione ancora",
+    "message": "Messaggio",
+    "back": "Indietro",
+    "displayName": "Nome visualizzato",
+    "yourName": "Il tuo nome",
+    "username": "Username",
+    "bio": "Bio",
+    "bioPlaceholder": "Racconta qualcosa di te, dei tuoi fiumi preferiti, della tua tecnica...",
+    "bioHelp": "Una breve presentazione (max 150 caratteri)",
+    "save": "Salva",
+    "saving": "Salvo...",
+    "changePhoto": "Cambia foto",
+    "profileUpdated": "Profilo aggiornato!",
+    "imageTooLarge": "L'immagine deve essere inferiore a 5MB",
+    "noFollowers": "Nessun follower",
+    "notFollowingAnyone": "Non segue nessuno",
+    "posts": "Post",
+    "followers": "Follower",
+    "following": "Seguiti",
+    "emptyPostsTitleOwn": "Inizia il tuo viaggio",
+    "emptyPostsDescOwn": "Condividi la tua prima cattura o uscita di pesca per iniziare a costruire la tua storia.",
+    "shareFirstCatch": "Pubblica il tuo primo post",
+    "emptyPostsTitleOther": "Nessun post ancora",
+    "emptyPostsDescOther": "Questo pescatore non ha ancora condiviso le sue catture.",
+    "emptyReviewsTitleOwn": "Esplora gli spot",
+    "emptyReviewsDescOwn": "Visita la mappa, recensisci i fiumi che hai pescato e aiuta la community.",
+    "exploreSpots": "Esplora la mappa",
+    "emptyReviewsTitleOther": "Nessuna recensione",
+    "emptyReviewsDescOther": "Questo pescatore non ha ancora recensito spot.",
+    "instagram": "Instagram",
+    "website": "Sito web",
+    "userSpots": "Spot condivisi"
+  },
+  "posts": {
+    "addCaption": "Scrivi una didascalia...",
+    "fishSpecies": "Specie ittica",
+    "gearUsed": "Attrezzatura utilizzata",
+    "fishingTechnique": "Tecnica di pesca",
+    "saveChanges": "Salva modifiche",
+    "deletePost": "Elimina post",
+    "editPost": "Modifica post",
+    "publish": "Pubblica",
+    "publishing": "Pubblica...",
+    "newPost": "Nuovo post",
+    "caption": "Didascalia",
+    "describeCapture": "Descrivi la tua cattura...",
+    "location": "Posizione",
+    "addLocation": "Aggiungi posizione",
+    "searchLocation": "Cerca località...",
+    "cancel": "Annulla",
+    "tapToAddPhoto": "Tocca per aggiungere una foto",
+    "public": "Pubblico",
+    "visibleToAll": "Visibile a tutti",
+    "followersOnly": "Solo follower",
+    "postPublished": "Post pubblicato!",
+    "postUpdated": "Post aggiornato!",
+    "postDeleted": "Post eliminato",
+    "shareCapture": "Condividi la tua cattura",
+    "uploading": "Caricamento...",
+    "saving": "Salvataggio...",
+    "deleteConfirmTitle": "Elimina post",
+    "deleteConfirmDesc": "Sei sicuro di voler eliminare questo post? L'azione è irreversibile.",
+    "cancelBtn": "Annulla",
+    "deleteBtn": "Elimina",
+    "deleting": "Eliminazione...",
+    "preview": "Anteprima",
+    "postNotFound": "Post non trovato",
+    "postNotFoundDesc": "Questo post potrebbe essere stato rimosso o il link non è valido.",
+    "backToFeed": "Torna al feed",
+    "fishingPost": "Post di pesca",
+    "showAllComments": "Mostra tutti i {{count}} commenti",
+    "addComment": "Aggiungi un commento...",
+    "commentError": "Errore nell'invio del commento",
+    "loginToPublish": "Accedi per pubblicare"
+  },
+  "map": {
+    "title": "Mappa Spot",
+    "exploreMap": "Esplora la mappa",
+    "addSpot": "Aggiungi spot",
+    "spotName": "Nome dello spot",
+    "spotType": "Tipo",
+    "lake": "Lago",
+    "river": "Fiume",
+    "stream": "Torrente",
+    "sea": "Mare",
+    "allTypes": "Tutti i tipi",
+    "description": "Descrizione",
+    "describeSpot": "Descrivi lo spot...",
+    "speciesPresent": "Specie presenti",
+    "accessInfo": "Informazioni di accesso",
+    "accessPlaceholder": "Come raggiungere lo spot, parcheggio, permessi...",
+    "photos": "Foto (opzionale)",
+    "addNewSpot": "Aggiungi nuovo spot di pesca",
+    "spotAdded": "Spot aggiunto!",
+    "saving": "Salvataggio...",
+    "seeDetails": "Vedi dettagli",
+    "position": "Posizione",
+    "searchPlace": "Cerca località, fiume, lago...",
+    "hatchActivity": "Schiuse attive",
+    "hatchAll": "Tutte le schiuse",
+    "legend": "Legenda",
+    "reportIssue": "Segnala problema",
+    "reportTitle": "Segnala un problema ambientale",
+    "reportType": "Tipo di segnalazione",
+    "reportPollution": "Inquinamento",
+    "reportPoaching": "Bracconaggio",
+    "reportOther": "Altro",
+    "reportDescription": "Descrizione",
+    "reportDescPlaceholder": "Descrivi cosa hai osservato...",
+    "reportLocationHelp": "Tocca la mappa o cerca per indicare la posizione",
+    "reportPhoto": "Foto (opzionale)",
+    "reportSubmit": "Invia segnalazione",
+    "reportSending": "Invio...",
+    "reportSent": "Segnalazione inviata agli amministratori per la revisione. Grazie per proteggere le nostre acque!",
+    "reportError": "Errore nell'invio della segnalazione",
+    "reportLegend": "Segnalazione approvata",
+    "sortBy": "Ordina",
+    "sortRecent": "Più recenti",
+    "sortMostLiked": "Più valutati",
+    "sortMostReviewed": "Più recensiti"
+  },
+  "badges": {
+    "explorer": "Esploratore",
+    "sentinel": "Sentinella"
+  },
+  "spot": {
+    "position": "Posizione",
+    "fishSpecies": "Specie ittiche",
+    "access": "Accesso",
+    "writeReview": "Scrivi una recensione",
+    "yourRating": "La tua valutazione",
+    "shareExperience": "Condividi la tua esperienza in questo spot...",
+    "submitReview": "Invia recensione",
+    "submitting": "Invio in corso...",
+    "reviewSubmitted": "Recensione inviata",
+    "selectRating": "Seleziona una valutazione",
+    "loginToReview": "Accedi per lasciare una recensione",
+    "reviews": "Recensioni",
+    "noReviews": "Nessuna recensione ancora. Sii il primo a condividere la tua esperienza.",
+    "spotNotFound": "Spot non trovato",
+    "backToMap": "Torna alla mappa",
+    "avgRating": "Valutazione media",
+    "angler": "Pescatore"
+  },
+  "blog": {
+    "theBlog": "Il Blog",
+    "readMore": "Leggi tutto",
+    "readingTime": "di lettura",
+    "relatedArticles": "Articoli correlati",
+    "shareArticle": "Condividi questo articolo",
+    "copied": "Copiato!",
+    "copyLink": "Copia link",
+    "discoverSpots": "Scopri gli spot su Flywaters",
+    "exploreMapShare": "Esplora la mappa, condividi le tue catture e connettiti con la community.",
+    "registerFree": "Registrati gratis"
+  },
+  "contact": {
+    "title": "Contatti",
+    "firstName": "Nome",
+    "lastName": "Cognome",
+    "phone": "Cellulare",
+    "region": "Provincia di provenienza",
+    "selectRegion": "Seleziona provincia",
+    "message": "Messaggio",
+    "send": "Invia messaggio",
+    "sending": "Invio in corso...",
+    "thankYou": "Grazie per averci scritto!",
+    "willReply": "Ti risponderemo entro 24 ore.",
+    "error": "Errore",
+    "errorDesc": "Si è verificato un errore. Riprova o scrivici a info@flywaters.app"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! Pagina non trovata",
+    "backHome": "Torna alla home"
+  },
+  "seo": {
+    "defaultTitle": "Flywaters — La community italiana per la pesca a mosca",
+    "defaultDescription": "Scopri i migliori spot di pesca in Italia, condividi le tue catture e connettiti con altri pescatori a mosca."
+  },
+  "mapGate": {
+    "title": "ESPLORA I MIGLIORI SPOT D'ITALIA",
+    "description": "Per proteggere i nostri fiumi e condividere le coordinate precise, Flywaters è una community riservata. Registrati gratuitamente per sbloccare la mappa completa, i consigli sulle mosche e i dati idrometrici.",
+    "ctaJoin": "Unisciti alla Community (Gratis)",
+    "alreadyHaveAccount": "Hai già un account?",
+    "loginHere": "Accedi qui",
+    "close": "Chiudi"
+  },
+  "guide": {
+    "tooltip": "Guida Certificata Flywaters",
+    "applyBadge": "Richiedi badge Guida",
+    "registerCheckbox": "Sei una guida professionista? Richiedi il badge"
+  },
+  "resetPassword": {
+    "title": "Reimposta password",
+    "subtitle": "Inserisci la tua nuova password",
+    "newPassword": "Nuova password",
+    "confirmPassword": "Conferma nuova password",
+    "updatePassword": "Aggiorna password",
+    "updating": "Aggiornamento...",
+    "success": "Password aggiornata con successo!",
+    "redirecting": "Reindirizzamento al login...",
+    "error": "Errore durante l'aggiornamento",
+    "sending": "Invio email di recupero in corso...",
+    "enterEmail": "Inserisci prima la tua email",
+    "emailSent": "Email di recupero inviata! Controlla la tua inbox.",
+    "invalidLink": "Link di recupero non valido o scaduto",
+    "passwordTooShort": "La password deve essere di almeno 6 caratteri"
+  },
+  "common": {
+    "fishingTypes": {
+      "fly-fishing": "🎣 Pesca a mosca",
+      "spinning": "🔄 Spinning",
+      "baitcasting": "🎯 Baitcasting",
+      "surfcasting": "🌊 Surfcasting",
+      "ice-fishing": "🧊 Pesca sul ghiaccio"
+    },
+    "searchUsers": "Cerca pescatori..."
+  },
+  "emptyStates": {
+    "notificationsTitle": "Ancora nessuna notifica",
+    "notificationsDesc": "Quando qualcuno metterà mi piace, commenterà o ti seguirà, lo vedrai qui.",
+    "notificationsCta": "Esplora la mappa",
+    "feedTitle": "Il feed è tranquillo",
+    "feedDesc": "Sii il primo a condividere una cattura oppure segnala uno spot per animare la community.",
+    "feedCta": "Segnala uno spot",
+    "savedTitle": "Nessun post salvato",
+    "savedDesc": "Salva i post che ti ispirano toccando il segnalibro. Li ritroverai qui.",
+    "savedCta": "Scopri il feed",
+    "messagesTitle": "Nessuna conversazione",
+    "messagesDesc": "Inizia a chattare con altri pescatori: cerca un profilo e rompi il ghiaccio.",
+    "messagesCta": "Trova pescatori",
+    "postsOwnTitle": "Condividi la tua prima cattura",
+    "postsOwnDesc": "Una foto, la posizione e la tecnica: contribuisci alla community.",
+    "postsOwnCta": "Crea il tuo primo post"
+  },
+  "fab": {
+    "open": "Apri azioni rapide",
+    "close": "Chiudi azioni rapide",
+    "newPost": "Nuovo post",
+    "shareSpot": "Condividi spot",
+    "report": "Segnala problema"
+  },
+  "upload": {
+    "uploading": "Caricamento",
+    "processing": "Ottimizzazione foto..."
+  },
+  "network": {
+    "weakSignal": "Segnale debole rilevato",
+    "retrying": "Stiamo riprovando...",
+    "offline": "Sei offline. Alcune funzioni potrebbero non essere disponibili.",
+    "backOnline": "Connessione ripristinata"
+  }
+}

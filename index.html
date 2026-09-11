@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCWXM9R30Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VCWXM9R30Y');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- Preload hero images -->
+    <link rel="preload" as="image" href="/src/assets/hero-mosca-club.jpg" media="(max-width: 768px)">
+    <link rel="preload" as="image" href="/src/assets/hero-mosca-club.jpg" media="(min-width: 769px)">
+
+    <!-- Self-hosted fonts (see src/index.css). Preload critical face for LCP. -->
+    <link rel="preconnect" href="https://qiwlajwphoihwzdsitpx.supabase.co">
+    <link rel="preconnect" href="https://www.clarity.ms">
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/Outfit-300-700.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/Inter-400-900.woff2" crossorigin>
+
+
+    <title>Flywaters — La community italiana per la pesca a mosca</title>
+    <meta name="description" content="Scopri i migliori spot di pesca a mosca in Italia, condividi le tue catture e connettiti con altri pescatori. Flywaters è la community no-kill per gli appassionati di fly fishing.">
+    <meta name="keywords" content="pesca a mosca, fly fishing, spot pesca italia, pesca fiume, pesca lago, community pescatori">
+    <meta name="author" content="Flywaters">
+    <meta name="language" content="it">
+    <meta name="geo.region" content="IT">
+    <link rel="canonical" href="https://flywaters.app/" />
+    <link rel="icon" href="/favicon.png" type="image/png">
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Flywaters">
+    <meta name="theme-color" content="#242242">
+    <link rel="apple-touch-icon" href="/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Flywaters — La community italiana per la pesca a mosca">
+    <meta property="og:description" content="Scopri spot, condividi catture e connettiti con pescatori a mosca in tutta Italia.">
+    <meta property="og:image" content="https://flywaters.app/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://flywaters.app">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Flywaters">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Flywaters — La community italiana per la pesca a mosca">
+    <meta name="twitter:description" content="Scopri spot, condividi catture e connettiti con pescatori a mosca in tutta Italia.">
+    <meta name="twitter:image" content="https://flywaters.app/og-image.jpg">
+
+    <!-- JSON-LD Structured Data: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Flywaters",
+      "url": "https://flywaters.app",
+      "description": "La community italiana per la pesca a mosca",
+      "inLanguage": "it",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://flywaters.app/map?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD Structured Data: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Flywaters",
+      "operatingSystem": "Web",
+      "applicationCategory": "SportsApplication",
+      "description": "L'app dedicata alla pesca a mosca: esplora spot, monitora le acque e gestisci le tue uscite di pesca.",
+      "url": "https://flywaters.app",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    }
+    </script>
+
+    <!-- Move Iubenda floating privacy button above the bottom nav on mobile -->
+    <script>
+      (function () {
+        function moveIubenda() {
+          if (window.innerWidth <= 768) {
+            document.querySelectorAll('.iubenda-tp-btn').forEach(function (btn) {
+              btn.style.cssText = 'bottom: 80px !important; z-index: 40 !important;';
+            });
+          }
+        }
+        window.addEventListener('load', moveIubenda);
+        window.addEventListener('resize', moveIubenda);
+        setTimeout(moveIubenda, 2000);
+        setTimeout(moveIubenda, 4000);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Iubenda (loaded after page to avoid render-blocking) -->
+    <script type="text/javascript" defer src="https://cdn.iubenda.com/iubenda.js"></script>
+    <script type="text/javascript" defer src="https://embeds.iubenda.com/widgets/1d5ccc8a-764a-41b8-81df-9f37cd08e126.js"></script>
+  </body>
+</html>
+

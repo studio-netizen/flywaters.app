@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.request_guide_badge() FROM anon;

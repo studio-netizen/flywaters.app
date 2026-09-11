@@ -1,0 +1,18 @@
+# Flywaters
+> La community italiana per la pesca a mosca
+
+Flywaters è una social community per pescatori a mosca italiani.
+
+## Features
+- Mappa interattiva spot di pesca
+- Feed social con foto catture
+- Community e messaggistica
+- Blog sulla pesca a mosca
+- Guida alle specie ittiche italiane
+- Guida entomologica per fly fisher
+
+## Links
+- Home: https://flywaters.app
+- Blog: https://flywaters.app/blog
+- Mappa: https://flywaters.app/mappa
+- Installa app: https://flywaters.app/installa-app
