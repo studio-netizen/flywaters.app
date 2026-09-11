@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { X } from 'lucide-react';
+import { X, Star, Mountain, Waves } from 'lucide-react';
 
 
 type Species = {
@@ -25,7 +25,7 @@ const SPECIES: Species[] = [
     key: 'brownTrout',
     scientific: 'Salmo trutta fario',
     habitat: 'streamRiver',
-    habitatIcon: '🏞️',
+    habitatIcon: 'river',
     difficulty: 2,
     difficultyKey: 'intermediate',
     img: '/brown-trout.png',
@@ -38,7 +38,7 @@ const SPECIES: Species[] = [
     key: 'marbleTrout',
     scientific: 'Salmo marmoratus',
     habitat: 'alpineRiver',
-    habitatIcon: '🏔️',
+    habitatIcon: 'mountain',
     difficulty: 3,
     difficultyKey: 'technical',
     img: '/marble-trout.png',
@@ -51,7 +51,7 @@ const SPECIES: Species[] = [
     key: 'rainbowTrout',
     scientific: 'Oncorhynchus mykiss',
     habitat: 'lakeRiver',
-    habitatIcon: '🏞️',
+    habitatIcon: 'river',
     difficulty: 1,
     difficultyKey: 'easy',
     img: '/rainbow-trout.png',
@@ -64,7 +64,7 @@ const SPECIES: Species[] = [
     key: 'grayling',
     scientific: 'Thymallus thymallus',
     habitat: 'fastRiver',
-    habitatIcon: '🏔️',
+    habitatIcon: 'mountain',
     difficulty: 3,
     difficultyKey: 'technical',
     img: '/images/fish/grayling.png',
@@ -77,7 +77,7 @@ const SPECIES: Species[] = [
     key: 'brookTrout',
     scientific: 'Salvelinus fontinalis',
     habitat: 'alpineStream',
-    habitatIcon: '🏔️',
+    habitatIcon: 'mountain',
     difficulty: 2,
     difficultyKey: 'intermediate',
     img: '/images/fish/brook-trout.png',
@@ -90,7 +90,7 @@ const SPECIES: Species[] = [
     key: 'arcticChar',
     scientific: 'Salvelinus alpinus',
     habitat: 'alpineLake',
-    habitatIcon: '🏔️',
+    habitatIcon: 'mountain',
     difficulty: 3,
     difficultyKey: 'technical',
     img: '/images/fish/arctic-char.png',
@@ -103,7 +103,7 @@ const SPECIES: Species[] = [
     key: 'pike',
     scientific: 'Esox lucius',
     habitat: 'lakeSlowRiver',
-    habitatIcon: '🏞️',
+    habitatIcon: 'river',
     difficulty: 2,
     difficultyKey: 'intermediate',
     img: '/pike.png',
@@ -116,7 +116,7 @@ const SPECIES: Species[] = [
     key: 'chub',
     scientific: 'Squalius cephalus',
     habitat: 'river',
-    habitatIcon: '🏞️',
+    habitatIcon: 'river',
     difficulty: 1,
     difficultyKey: 'easy',
     img: '/images/fish/chub.png',
@@ -129,7 +129,7 @@ const SPECIES: Species[] = [
     key: 'barbel',
     scientific: 'Barbus barbus',
     habitat: 'river',
-    habitatIcon: '🏞️',
+    habitatIcon: 'river',
     difficulty: 2,
     difficultyKey: 'intermediate',
     img: '/images/fish/barbel.png',
@@ -142,7 +142,7 @@ const SPECIES: Species[] = [
     key: 'carp',
     scientific: 'Cyprinus carpio',
     habitat: 'lakeSlowRiver',
-    habitatIcon: '🏞️',
+    habitatIcon: 'river',
     difficulty: 3,
     difficultyKey: 'technical',
     img: '/images/fish/common-carp.png',
@@ -154,8 +154,23 @@ const SPECIES: Species[] = [
 ];
 
 const Stars = ({ n }: { n: number }) => (
-  <span aria-hidden>{'⭐'.repeat(n)}</span>
+  <span className="inline-flex items-center gap-0.5" aria-hidden>
+    {[1, 2, 3].map((i) => (
+      <Star
+        key={i}
+        className={`w-3 h-3 ${i <= n ? 'fill-[#242242] text-[#242242]' : 'fill-transparent text-[#242242]/25'}`}
+        strokeWidth={1.5}
+      />
+    ))}
+  </span>
 );
+
+const HabitatIcon = ({ icon }: { icon: string }) =>
+  icon === 'mountain' ? (
+    <Mountain className="w-3.5 h-3.5" strokeWidth={1.75} aria-hidden />
+  ) : (
+    <Waves className="w-3.5 h-3.5" strokeWidth={1.75} aria-hidden />
+  );
 
 const SpeciesSection = () => {
   const { t } = useTranslation();
@@ -225,7 +240,7 @@ const SpeciesSection = () => {
               <p className="italic text-xs text-[#8c8c7a] mb-3">{s.scientific}</p>
               <div className="flex flex-wrap gap-2 mb-3">
                 <span className="inline-flex items-center gap-1 text-[11px] font-medium px-3 py-1 rounded-full" style={{ backgroundColor: '#f0ede8', color: '#242242' }}>
-                  <span aria-hidden>{s.habitatIcon}</span>
+                  <HabitatIcon icon={s.habitatIcon} />
                   {t(`landing.species.habitats.${s.habitat}`)}
                 </span>
                 <span className="inline-flex items-center gap-1 text-[11px] font-medium px-3 py-1 rounded-full" style={{ backgroundColor: '#f0ede8', color: '#242242' }}>
@@ -294,7 +309,7 @@ const SpeciesSection = () => {
 
               <div className="flex flex-wrap gap-2 mb-5">
                 <span className="inline-flex items-center gap-1 text-xs font-medium px-3 py-1 rounded-full" style={{ backgroundColor: '#f0ede8', color: '#242242' }}>
-                  <span aria-hidden>{selected.habitatIcon}</span>
+                  <HabitatIcon icon={selected.habitatIcon} />
                   {t(`landing.species.habitats.${selected.habitat}`)}
                 </span>
                 <span className="inline-flex items-center gap-1 text-xs font-medium px-3 py-1 rounded-full" style={{ backgroundColor: '#f0ede8', color: '#242242' }}>

@@ -258,10 +258,10 @@
   }
 
   .insect-illustration {
-    width: 200px;
-    height: 200px;
+    width: 100%;
     max-width: 200px;
-    max-height: 200px;
+    height: auto;
+    aspect-ratio: 464 / 399;
     object-fit: contain;
   }
 }
