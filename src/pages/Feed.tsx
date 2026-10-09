@@ -21,7 +21,7 @@ import { toast } from 'sonner';
 import { useUnreadMessages } from '@/hooks/useUnreadMessages';
 import { useTranslation } from 'react-i18next';
 import OnboardingWizard from '@/components/OnboardingWizard';
-import { getOptimizedImageUrl, getImageSrcSet } from '@/lib/image-url';
+import { getOptimizedImageUrl, isTransformableImage, getImageSrcSet } from '@/lib/image-url';
 import { formatTimeIt } from '@/lib/format-time';
 import { usePullToRefresh } from '@/hooks/usePullToRefresh';
 import { hapticLight, hapticSuccess } from '@/lib/haptic';
@@ -56,6 +56,8 @@ interface SuggestedUser {
 
 const PAGE_SIZE = 10;
 
+const feedCache: Record<string, any[]> = {};
+
 const Feed = () => {
   const { user, loading: authLoading } = useAuth();
   const navigate = useNavigate();
@@ -87,13 +89,22 @@ const Feed = () => {
 
   useEffect(() => {
     if (!user) return;
-    setPosts([]);
-    setHasMore(true);
-    fetchPosts(0, true);
-  }, [user, feedMode, followedUsers]);
+    const cached = feedCache[feedMode];
+    if (cached && cached.length) {
+      // Instant render from memory (Instagram-like), refresh silently.
+      setPosts(cached);
+      setLoading(false);
+      fetchPosts(0, true, true);
+    } else {
+      setPosts([]);
+      setHasMore(true);
+      fetchPosts(0, true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user, feedMode, feedMode === 'following' ? followedUsers : null]);
 
-  const fetchPosts = async (offset: number, replace = false) => {
-    if (replace) { setLoading(true); setLoadError(false); } else setLoadingMore(true);
+  const fetchPosts = async (offset: number, replace = false, silent = false) => {
+    if (replace) { if (!silent) setLoading(true); setLoadError(false); } else setLoadingMore(true);
 
     if (feedMode === 'following' && followedUsers.size === 0) {
       setPosts([]); setHasMore(false); setLoading(false); setLoadingMore(false);
@@ -122,7 +133,11 @@ const Feed = () => {
 
     if (!error && data) {
       const batch = data as unknown as Post[];
-      setPosts(prev => replace ? batch : [...prev, ...batch]);
+      setPosts(prev => {
+        const next = replace ? batch : [...prev, ...batch];
+        feedCache[feedMode] = next;
+        return next;
+      });
       setHasMore(batch.length === PAGE_SIZE);
     } else if (error) {
       console.error('[Feed] errore caricamento post:', error);
@@ -490,11 +505,11 @@ const Feed = () => {
                     fetchPriority={idx === 0 ? 'high' : 'auto'}
                     decoding="async"
                     className="rounded-t-card"
-                    style={{
+                    style={isTransformableImage(post.image_url) ? {
                       backgroundImage: `url(${getOptimizedImageUrl(post.image_url, 20, 30)})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
-                    }}
+                    } : undefined}
                     onSingleTap={() => navigate(`/post/${post.id}`)}
                     onDoubleTap={() => toggleLike(post.id, { forceLike: true })}
                   />

@@ -17,7 +17,7 @@ export interface CompressionResult {
 type Preset = 'default' | 'avatar' | 'blog';
 
 const presets: Record<Preset, { maxSizeMB: number; maxWidthOrHeight: number; initialQuality: number }> = {
-  default: { maxSizeMB: 1.5, maxWidthOrHeight: 1920, initialQuality: 0.82 },
+  default: { maxSizeMB: 0.6, maxWidthOrHeight: 1440, initialQuality: 0.8 },
   avatar: { maxSizeMB: 0.3, maxWidthOrHeight: 400, initialQuality: 0.85 },
   blog: { maxSizeMB: 1.0, maxWidthOrHeight: 1200, initialQuality: 0.85 },
 };
