@@ -40,3 +40,8 @@ export function getImageSrcSet(
     .map((w) => `${getOptimizedImageUrl(url, w, quality)} ${w}w`)
     .join(', ');
 }
+
+/** True only for hosts that support on-the-fly resizing (Storage render). */
+export function isTransformableImage(url: string | undefined | null): boolean {
+  return !!url && url.includes('/storage/v1/');
+}
