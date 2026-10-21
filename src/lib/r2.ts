@@ -1,4 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
+import { compressImage } from "@/lib/image-compression";
 
 export type R2Folder = "posts" | "avatars" | "spots" | "blog" | "reports" | "reviews";
 
@@ -115,4 +116,33 @@ export function isR2Url(url: string | null | undefined): boolean {
   if (base) return url.startsWith(base);
   // Heuristic fallback: r2.dev or r2.cloudflarestorage.com
   return /r2\.(dev|cloudflarestorage\.com)/.test(url);
+}
+
+/** Feed-sized copy of a post photo, stored next to the original. */
+export function getThumbUrl(url: string | null | undefined): string | null {
+  if (!url || !isR2Url(url) || !/\/posts\//.test(url)) return null;
+  return url.replace(/(\.[a-z0-9]+)?$/i, "-t.webp");
+}
+
+/**
+ * Upload a post photo plus a small feed version (best effort: if the small
+ * version fails, the feed falls back to the original automatically).
+ */
+export async function uploadPostImage(
+  file: File,
+  opts: { onProgress?: (pct: number) => void } = {},
+): Promise<string> {
+  const publicUrl = await uploadToR2(file, "posts", { onProgress: opts.onProgress });
+  try {
+    const thumbUrl = getThumbUrl(publicUrl);
+    const thumbName = thumbUrl?.split("/").pop();
+    if (thumbName && thumbName.length <= 80) {
+      const { file: thumb } = await compressImage(file, "thumb");
+      await uploadToR2(thumb, "posts", { path: thumbName });
+    }
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.warn("Thumbnail upload failed (ignored)", e);
+  }
+  return publicUrl;
 }

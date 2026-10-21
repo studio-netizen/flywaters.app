@@ -15,6 +15,8 @@ interface ZoomableImageProps {
   /** When provided, double-tap fires this instead of zooming (Instagram-style like). */
   onDoubleTap?: () => void;
   disableZoom?: boolean;
+  /** Used if `src` fails to load (e.g. missing feed thumbnail). */
+  fallbackSrc?: string;
 }
 
 const ZoomableImage = ({
@@ -30,7 +32,10 @@ const ZoomableImage = ({
   onSingleTap,
   onDoubleTap,
   disableZoom = false,
+  fallbackSrc,
 }: ZoomableImageProps) => {
+  const [failed, setFailed] = useState(false);
+  const useFallback = failed && !!fallbackSrc;
   const [zoomed, setZoomed] = useState(false);
   const [burst, setBurst] = useState(0);
   const lastTapRef = useRef(0);
@@ -80,8 +85,9 @@ const ZoomableImage = ({
       style={{ touchAction: 'pan-y' }}
     >
       <img
-        src={src}
-        srcSet={srcSet}
+        src={useFallback ? fallbackSrc : src}
+        srcSet={useFallback ? undefined : srcSet}
+        onError={() => { if (fallbackSrc && !failed) setFailed(true); }}
         sizes={sizes}
         alt={alt}
         loading={loading}
