@@ -60,7 +60,7 @@ const DesktopSidebar = () => {
 
       <nav className="flex-1 space-y-1">
         {links.map(({ to, icon: Icon, label, badge }) => {
-          const isActive = location.pathname === to || (to === '/' && location.pathname === '/');
+          const isActive = location.pathname === to || (to.startsWith("/profile/") && location.pathname.startsWith("/@"));
           return (
             <NavLink
               key={to}

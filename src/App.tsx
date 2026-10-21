@@ -13,6 +13,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import Feed from "./pages/Feed";
 import Auth from "./pages/Auth";
 import Profile from "./pages/Profile";
+import ProfileByHandle from "./pages/ProfileByHandle";
 import SpotDetail from "./pages/SpotDetail";
 import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/admin/AdminLogin";
@@ -156,7 +157,8 @@ const App = () => (
                 <Route path="/installa-app" element={<InstallaApp />} />
                 <Route path="/cerca" element={<SearchPage />} />
                 <Route path="/invito/:username" element={<Invite />} />
-                <Route path="*" element={<NotFound />} />
+                <Route path="/:handle" element={<ProfileByHandle />} />
+               <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
             </ErrorBoundary>
