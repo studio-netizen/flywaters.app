@@ -87,8 +87,24 @@ const StarRating = ({
 };
 
 const SpotDetail = () => {
-  const { spotId } = useParams<{ spotId: string }>();
+  const { spotId: routeParam } = useParams<{ spotId: string }>();
   const navigate = useNavigate();
+  const [spotId, setSpotId] = useState<string | undefined>();
+  const [spotSlug, setSpotSlug] = useState<string | null>(null);
+
+  // Resolve readable slug (/spot/torrente-mella) or legacy UUID, redirecting old links.
+  useEffect(() => {
+    if (!routeParam) return;
+    const isUuid = /^[0-9a-f-]{36}$/i.test(routeParam);
+    (async () => {
+      const { data } = await supabase.from('spots').select('id, slug')
+        .eq(isUuid ? 'id' : 'slug', routeParam).maybeSingle();
+      if (!data) { setLoading(false); return; }
+      setSpotSlug(data.slug);
+      setSpotId(data.id);
+      if (isUuid && data.slug) navigate(`/spot/${data.slug}`, { replace: true });
+    })();
+  }, [routeParam]);
   const { user } = useAuth();
   const [spot, setSpot] = useState<Spot | null>(null);
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -101,7 +117,7 @@ const SpotDetail = () => {
   const [copied, setCopied] = useState(false);
   const [hasReviewed, setHasReviewed] = useState(false);
 
-  const shareUrl = spot ? `https://flywaters.app/spot/${spotId}` : '';
+  const shareUrl = spot ? `https://flywaters.app/spot/${spotSlug || spotId}` : '';
   const shareText = spot ? `Check out this fly fishing spot: ${spot.name} on Flywaters` : '';
 
   const handleShare = async () => {

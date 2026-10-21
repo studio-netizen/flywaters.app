@@ -640,6 +640,7 @@ export type Database = {
           name: string
           photos: string[] | null
           review_count: number | null
+          slug: string | null
           spot_type: string
           updated_at: string
         }
@@ -657,6 +658,7 @@ export type Database = {
           name: string
           photos?: string[] | null
           review_count?: number | null
+          slug?: string | null
           spot_type: string
           updated_at?: string
         }
@@ -674,6 +676,7 @@ export type Database = {
           name?: string
           photos?: string[] | null
           review_count?: number | null
+          slug?: string | null
           spot_type?: string
           updated_at?: string
         }
@@ -739,6 +742,7 @@ export type Database = {
     }
     Functions: {
       admin_system_metrics: { Args: never; Returns: Json }
+      slugify_text: { Args: { _t: string }; Returns: string }
     }
     Enums: {
       [_ in never]: never
