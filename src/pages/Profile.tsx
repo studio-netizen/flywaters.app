@@ -16,8 +16,9 @@ import ProfileSpotsMiniMap from '@/components/ProfileSpotsMiniMap';
 import { sanitizeHttpUrl } from '@/lib/sanitize-url';
 import InviteShareDialog from '@/components/InviteShareDialog';
 
-const Profile = () => {
-  const { userId: paramUserId } = useParams<{ userId: string }>();
+const Profile = ({ userIdOverride }: { userIdOverride?: string } = {}) => {
+  const { userId: routeUserId } = useParams<{ userId: string }>();
+  const paramUserId = userIdOverride || routeUserId;
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
   const userId = paramUserId || user?.id;
@@ -40,6 +41,12 @@ const Profile = () => {
   const [badges, setBadges] = useState<UserBadgesType | null>(null);
   const [inviteOpen, setInviteOpen] = useState(false);
   const isOwnProfile = user?.id === userId;
+
+  useEffect(() => {
+    if (!userIdOverride && profile?.username && profile.user_id === userId) {
+      navigate(`/@${profile.username}`, { replace: true });
+    }
+  }, [profile?.username, profile?.user_id, userId, userIdOverride]);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -195,7 +202,12 @@ const Profile = () => {
 
   return (
     <AppLayout>
-      <SEOHead title={`${profile?.display_name || profile?.username || t('nav.profile')} | Flywaters`} description={`${profile?.display_name || profile?.username || ''}`} />
+      <SEOHead
+        title={`${profile?.display_name || profile?.username || t('nav.profile')} | Flywaters`}
+        description={profile?.bio || `${profile?.display_name || profile?.username || ''} — pescatore a mosca su Flywaters`}
+        canonical={profile?.username ? `https://flywaters.app/@${profile.username}` : undefined}
+        ogType="profile"
+      />
       <header className="sticky top-0 z-40 bg-background border-b border-border px-4 py-3 lg:hidden">
         <div className="max-w-lg mx-auto flex items-center justify-between">
           <button onClick={() => navigate(-1)} className="text-foreground p-1">
