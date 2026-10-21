@@ -23,7 +23,7 @@ function entry(path: string, freq: string, prio: string, lastmod?: string | null
 }
 
 Deno.serve(async () => {
-  const sb = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_ANON_KEY")!);
+  const sb = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
   const [blog, spots, profiles] = await Promise.all([
     sb.from("blog_posts").select("slug, updated_at, published_at").eq("status", "published").limit(5000),
     sb.from("spots").select("slug, updated_at").not("slug", "is", null).limit(10000),
