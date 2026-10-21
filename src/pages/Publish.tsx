@@ -16,7 +16,7 @@ import LocationPicker, { LocationResult } from '@/components/LocationPicker';
 import TagChipSelector from '@/components/TagChipSelector';
 import { FISH_SPECIES, FISHING_TECHNIQUES, FISHING_GEAR, HATCH_ACTIVITIES } from '@/lib/fishing-constants';
 import { logAudit } from '@/lib/audit';
-import { uploadToR2 } from '@/lib/r2';
+import { uploadPostImage } from '@/lib/r2';
 
 
 const Publish = () => {
@@ -63,7 +63,7 @@ const Publish = () => {
     setLoading(true);
     setUploadProgress(0);
     try {
-      const publicUrl = await uploadToR2(imageFile, 'posts', {
+      const publicUrl = await uploadPostImage(imageFile, {
         onProgress: (pct) => setUploadProgress(pct),
       });
 

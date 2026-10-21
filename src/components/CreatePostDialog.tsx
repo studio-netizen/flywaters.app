@@ -13,7 +13,7 @@ import { validateImageFile, compressImage, formatFileSize } from '@/lib/image-co
 import TagChipSelector from '@/components/TagChipSelector';
 import { FISH_SPECIES, FISHING_TECHNIQUES, FISHING_GEAR } from '@/lib/fishing-constants';
 import { logAudit } from '@/lib/audit';
-import { uploadToR2 } from '@/lib/r2';
+import { uploadPostImage } from '@/lib/r2';
 
 interface Props {
   onPostCreated: () => void;
@@ -82,7 +82,7 @@ const CreatePostDialog = ({ onPostCreated }: Props) => {
     setSizeInfo(null);
 
     const uploadPromise = (async () => {
-      const publicUrl = await uploadToR2(snapshot.file, 'posts', {
+      const publicUrl = await uploadPostImage(snapshot.file, {
         onProgress: () => {},
       });
       const { data: inserted, error } = await supabase.from('posts').insert({

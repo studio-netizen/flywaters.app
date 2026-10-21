@@ -16,6 +16,7 @@ import SEOHead from '@/components/SEOHead';
 import EmptyState from '@/components/EmptyState';
 import WelcomeBanner from '@/components/WelcomeBanner';
 import ZoomableImage from '@/components/ZoomableImage';
+import { getThumbUrl } from '@/lib/r2';
 
 import { toast } from 'sonner';
 import { useUnreadMessages } from '@/hooks/useUnreadMessages';
@@ -497,8 +498,9 @@ const Feed = () => {
 
                 <div className="block w-full aspect-[4/5] bg-muted overflow-hidden">
                   <ZoomableImage
-                    src={getOptimizedImageUrl(post.image_url, 800, 75)}
-                    srcSet={getImageSrcSet(post.image_url, [400, 800, 1200], 75)}
+                    src={getThumbUrl(post.image_url) || getOptimizedImageUrl(post.image_url, 800, 75)}
+                    srcSet={getThumbUrl(post.image_url) ? undefined : getImageSrcSet(post.image_url, [400, 800, 1200], 75)}
+                    fallbackSrc={getThumbUrl(post.image_url) ? post.image_url : undefined}
                     sizes="(max-width: 768px) 100vw, 600px"
                     alt={`Foto di pesca a mosca condivisa da ${post.profiles?.username || 'pescatore'} su Flywaters`}
                     loading={idx === 0 ? 'eager' : 'lazy'}
