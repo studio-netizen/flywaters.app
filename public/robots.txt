@@ -9,4 +9,4 @@ Disallow: /admin/*
 Disallow: /api
 Disallow: /api/*
 
-Sitemap: https://flywaters.app/sitemap.xml
+Sitemap: https://qiwlajwphoihwzdsitpx.supabase.co/functions/v1/sitemap
