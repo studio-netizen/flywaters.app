@@ -8,6 +8,13 @@
       "when": 1792610496484,
       "tag": "0000_spot_slugs",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792673497819,
+      "tag": "0001_tighten_contact_and_storage_reads",
+      "breakpoints": true
     }
   ]
 }
