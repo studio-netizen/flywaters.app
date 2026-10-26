@@ -394,6 +394,7 @@ export type Database = {
         Row: {
           caption: string | null
           comment_count: number | null
+          conditions: Json | null
           created_at: string
           fish_species: string[] | null
           fishing_technique: string[] | null
@@ -409,6 +410,7 @@ export type Database = {
         Insert: {
           caption?: string | null
           comment_count?: number | null
+          conditions?: Json | null
           created_at?: string
           fish_species?: string[] | null
           fishing_technique?: string[] | null
@@ -424,6 +426,7 @@ export type Database = {
         Update: {
           caption?: string | null
           comment_count?: number | null
+          conditions?: Json | null
           created_at?: string
           fish_species?: string[] | null
           fishing_technique?: string[] | null
