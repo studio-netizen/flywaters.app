@@ -15,6 +15,13 @@
       "when": 1792673497819,
       "tag": "0001_tighten_contact_and_storage_reads",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793030112719,
+      "tag": "0002_restrict_follows_comments_reads",
+      "breakpoints": true
     }
   ]
 }
