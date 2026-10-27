@@ -1,3 +1,4 @@
+import { fetchConditions } from '@/lib/conditions';
 import { useState, useRef } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -85,8 +86,10 @@ const CreatePostDialog = ({ onPostCreated }: Props) => {
       const publicUrl = await uploadPostImage(snapshot.file, {
         onProgress: () => {},
       });
+      const conditions = await fetchConditions(snapshot.location?.lat ?? null, snapshot.location?.lng ?? null);
       const { data: inserted, error } = await supabase.from('posts').insert({
         user_id: user.id,
+        conditions: conditions as any,
         image_url: publicUrl,
         caption: snapshot.caption || null,
         location_tag: snapshot.location?.name || null,

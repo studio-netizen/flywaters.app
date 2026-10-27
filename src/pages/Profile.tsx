@@ -6,7 +6,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Badge } from '@/components/ui/badge';
 import GuideAvatar, { GoldenFlyInline } from '@/components/GuideAvatar';
 import { Button } from '@/components/ui/button';
-import { Grid3X3, MapPin, Pencil, Star, ArrowLeft, LogOut, Heart, MessageCircle, Camera, Plus, Sparkles, Instagram, Globe, Bookmark, UserPlus } from 'lucide-react';
+import { Grid3X3, MapPin, Pencil, Star, ArrowLeft, LogOut, Heart, MessageCircle, Camera, Plus, Sparkles, Instagram, Globe, Bookmark, UserPlus, BookOpen } from 'lucide-react';
 import AppLayout from '@/components/AppLayout';
 import FollowersModal from '@/components/FollowersModal';
 import { useTranslation } from 'react-i18next';
@@ -14,6 +14,7 @@ import { fetchUserBadges, type UserBadges as UserBadgesType } from '@/lib/badges
 import UserBadges from '@/components/UserBadges';
 import ProfileSpotsMiniMap from '@/components/ProfileSpotsMiniMap';
 import { sanitizeHttpUrl } from '@/lib/sanitize-url';
+import FishingDiary from '@/components/FishingDiary';
 import InviteShareDialog from '@/components/InviteShareDialog';
 
 const Profile = ({ userIdOverride }: { userIdOverride?: string } = {}) => {
@@ -36,7 +37,7 @@ const Profile = ({ userIdOverride }: { userIdOverride?: string } = {}) => {
   const [savedPosts, setSavedPosts] = useState<any[]>([]);
   const [stats, setStats] = useState({ posts: 0, followers: 0, following: 0 });
   const [isFollowing, setIsFollowing] = useState(false);
-  const [activeTab, setActiveTab] = useState<'posts' | 'spots' | 'saved'>('posts');
+  const [activeTab, setActiveTab] = useState<'posts' | 'spots' | 'saved' | 'diary'>('posts');
   const [modalType, setModalType] = useState<'followers' | 'following' | null>(null);
   const [badges, setBadges] = useState<UserBadgesType | null>(null);
   const [inviteOpen, setInviteOpen] = useState(false);
@@ -100,7 +101,7 @@ const Profile = ({ userIdOverride }: { userIdOverride?: string } = {}) => {
   };
 
   const fetchPosts = async () => {
-    const { data } = await supabase.from('posts').select('id, user_id, caption, image_url, spot_id, fish_species, fishing_technique, gear_used, location_tag, hatch_activity, like_count, comment_count, created_at').eq('user_id', userId!).order('created_at', { ascending: false });
+    const { data } = await supabase.from('posts').select('id, user_id, caption, image_url, spot_id, fish_species, fishing_technique, gear_used, location_tag, hatch_activity, like_count, comment_count, created_at, conditions').eq('user_id', userId!).order('created_at', { ascending: false });
     if (data) setPosts(data);
   };
 
@@ -345,6 +346,14 @@ const Profile = ({ userIdOverride }: { userIdOverride?: string } = {}) => {
           >
             <Star className="w-4 h-4" /> {t('profile.reviewedSpots')}
           </button>
+          <button
+            onClick={() => setActiveTab('diary')}
+            className={`flex-1 py-3 flex items-center justify-center gap-1.5 text-xs uppercase tracking-wide border-b-2 transition-colors ${
+              activeTab === 'diary' ? 'border-foreground text-foreground font-semibold' : 'border-transparent text-muted-foreground'
+            }`}
+          >
+            <BookOpen className="w-4 h-4" /> Diario
+          </button>
           {isOwnProfile && (
             <button
               onClick={() => setActiveTab('saved')}
@@ -357,7 +366,9 @@ const Profile = ({ userIdOverride }: { userIdOverride?: string } = {}) => {
           )}
         </div>
 
-        {activeTab === 'posts' ? (
+        {activeTab === 'diary' ? (
+          <FishingDiary posts={posts} isOwn={isOwnProfile} />
+        ) : activeTab === 'posts' ? (
           <div className="grid grid-cols-3 gap-[2px] pb-4">
             {posts.map(post => (
               <button
