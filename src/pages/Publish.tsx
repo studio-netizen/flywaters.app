@@ -1,3 +1,4 @@
+import { fetchConditions } from '@/lib/conditions';
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -67,8 +68,10 @@ const Publish = () => {
         onProgress: (pct) => setUploadProgress(pct),
       });
 
+      const conditions = await fetchConditions(location?.lat ?? null, location?.lng ?? null);
       const { data: inserted, error } = await supabase.from('posts').insert({
         user_id: user.id,
+        conditions: conditions as any,
         image_url: publicUrl,
         caption: caption || null,
         location_tag: location?.name || null,
