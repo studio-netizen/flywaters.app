@@ -120,8 +120,9 @@ export default function AdminAuditLog() {
         'resource_type', 'resource_id', 'ip_address', 'user_agent', 'details',
       ];
       const escape = (v: any) => {
-        const s = v == null ? '' : typeof v === 'object' ? JSON.stringify(v) : String(v);
-        return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+        let s = v == null ? '' : typeof v === 'object' ? JSON.stringify(v) : String(v);
+        if (/^[=+\-@\t\r]/.test(s)) s = "'" + s;
+        return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
       };
       const csv = [
         header.join(','),

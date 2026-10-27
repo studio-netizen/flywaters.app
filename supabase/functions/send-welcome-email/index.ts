@@ -240,7 +240,7 @@ serve(async (req) => {
       status: "sent",
     });
 
-    console.log(`Welcome email sent to ${user.email}`);
+    console.log("Welcome email sent");
     return new Response(JSON.stringify({ success: true, id: resendData.id }), {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },

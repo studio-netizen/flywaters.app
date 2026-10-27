@@ -392,7 +392,16 @@ serve(async (req) => {
       }
 
       case "save_blog_post": {
-        const { id, post } = params as any;
+        const { id, post: rawPost } = params as any;
+        const BLOG_FIELDS = [
+          "title", "slug", "cover_image_url", "cover_image_alt", "body_html", "excerpt",
+          "author", "status", "published_at", "seo_title", "meta_description",
+          "focus_keyword", "category", "tags", "reading_time_minutes",
+        ];
+        const post: Record<string, unknown> = {};
+        for (const f of BLOG_FIELDS) {
+          if (rawPost && typeof rawPost === "object" && f in rawPost) post[f] = rawPost[f];
+        }
         if (id) {
           const { data, error } = await supabase
             .from("blog_posts")
