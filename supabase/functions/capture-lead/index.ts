@@ -163,7 +163,7 @@ serve(async (req) => {
 
     if (existing) {
       // Already in CRM - don't duplicate, but still send guide
-      console.log(`Lead already exists: ${email} (status: ${existing.status})`);
+      console.log("Lead already exists");
     } else {
       // Insert as lead (no user_id since not registered)
       const { error: insertError } = await supabase.from("crm_contacts").insert({
@@ -205,7 +205,7 @@ serve(async (req) => {
       });
     }
 
-    console.log(`Guide email sent to ${email}`);
+    console.log("Guide email sent");
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },

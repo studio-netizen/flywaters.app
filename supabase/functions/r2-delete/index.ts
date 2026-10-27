@@ -50,7 +50,23 @@ Deno.serve(async (req) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
-    const key = inputUrl.slice(publicBase.length + 1).split("?")[0];
+    let key: string;
+    try {
+      key = decodeURIComponent(inputUrl.slice(publicBase.length + 1).split(/[?#]/)[0]);
+    } catch {
+      key = "";
+    }
+    const segs = key.split("/");
+    if (
+      !key || key.includes("\\") || key.startsWith("/") ||
+      segs.some((p) => p === "" || p === "." || p === "..") ||
+      !/^[A-Za-z0-9._\-\/]+$/.test(key)
+    ) {
+      return new Response(JSON.stringify({ error: "Invalid url" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     // Auth: admin OR user where key contains their id
     let allowed = false;
@@ -98,7 +114,7 @@ Deno.serve(async (req) => {
       region: "auto",
     });
 
-    const url = `${endpoint.replace(/\/$/, "")}/${bucket}/${key}`;
+    const url = `${endpoint.replace(/\/$/, "")}/${bucket}/${segs.map(encodeURIComponent).join("/")}`;
     const res = await aws.fetch(url, { method: "DELETE" });
     if (!res.ok && res.status !== 404) {
       const text = await res.text();
