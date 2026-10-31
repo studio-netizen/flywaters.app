@@ -24,18 +24,18 @@ function entry(path: string, freq: string, prio: string, lastmod?: string | null
 
 Deno.serve(async () => {
   const sb = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
-  const [blog, spots, profiles] = await Promise.all([
-    sb.from("blog_posts").select("slug, updated_at, published_at").eq("status", "published").limit(5000),
-    sb.from("spots").select("slug, updated_at").not("slug", "is", null).limit(10000),
-    sb.from("profiles").select("username").not("username", "is", null).limit(20000),
-  ]);
+  // Only publicly readable content is listed. Spots and profiles are
+  // members-only (RLS), so they are intentionally excluded.
+  const blog = await sb
+    .from("blog_posts")
+    .select("slug, updated_at, published_at")
+    .eq("status", "published")
+    .limit(5000);
 
   const lines = [
     ...STATIC.map(([p, f, pr]) => entry(p, f, pr)),
     ...REGIONS.map((r) => entry(`/fly-fishing-italy/${r}`, "weekly", "0.7")),
     ...(blog.data ?? []).map((b) => entry(`/blog/${b.slug}`, "monthly", "0.7", day(b.updated_at || b.published_at))),
-    ...(spots.data ?? []).map((s) => entry(`/spot/${s.slug}`, "weekly", "0.6", day(s.updated_at))),
-    ...(profiles.data ?? []).map((p) => entry(`/@${encodeURIComponent(p.username!)}`, "weekly", "0.5")),
   ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${lines.join("\n")}\n</urlset>\n`;
