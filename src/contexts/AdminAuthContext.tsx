@@ -4,7 +4,7 @@ interface AdminAuthContextType {
   isAuthenticated: boolean;
   token: string | null;
   login: (email: string, password: string) => Promise<{ ok: boolean; error?: string }>;
-  logout: () => void;
+  logout: () => Promise<void>;
 }
 
 const AdminAuthContext = createContext<AdminAuthContextType | null>(null);
@@ -55,11 +55,25 @@ export const AdminAuthProvider = ({ children }: { children: React.ReactNode }) =
     }
   }, []);
 
-  const logout = useCallback(() => {
+  const logout = useCallback(async () => {
+    if (token) {
+      const res = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-api`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+          'x-admin-token': token,
+        },
+        body: JSON.stringify({ action: 'logout' }),
+      });
+      // Already expired/revoked sessions are safe to clear; keep the token on
+      // connection failure so revocation can be retried instead of faking logout.
+      if (!res.ok && res.status !== 401) throw new Error('Logout failed');
+    }
     setToken(null);
     localStorage.removeItem('admin_token');
     localStorage.removeItem('admin_token_exp');
-  }, []);
+  }, [token]);
 
   return (
     <AdminAuthContext.Provider value={{ isAuthenticated: !!token, token, login, logout }}>
