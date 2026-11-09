@@ -311,7 +311,7 @@ const PostDetail = () => {
           </div>
 
           {/* Image */}
-          <div className="aspect-[4/5] bg-muted">
+          <div className="w-full bg-muted overflow-hidden">
             <ZoomableImage
               src={post.image_url}
               alt={`Foto di pesca a mosca condivisa da ${post.profiles?.username || 'pescatore'} su Flywaters`}

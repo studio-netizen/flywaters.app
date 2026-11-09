@@ -1,0 +1,4 @@
+- [x] Keep the Publish action above iPhone bottom navigation.
+- [x] Show complete photos without cropping or unused feed image space.
+- [x] Verify iPhone-sized and desktop presentation with isolated real components and a selected photo.
+- [ ] Verify live authenticated submission: blocked by no available user session in preview.
