@@ -61,7 +61,7 @@ const ZoomableImage = ({
     if (now - lastTapRef.current < 300) {
       lastTapRef.current = 0;
       if (useDoubleTapLike) {
-        onDoubleTap!();
+        onDoubleTap?.();
         triggerBurst();
       } else {
         setZoomed(z => !z);
@@ -93,7 +93,7 @@ const ZoomableImage = ({
         loading={loading}
         fetchPriority={fetchPriority}
         decoding={decoding}
-        className="w-full h-full object-cover"
+        className="block w-full h-auto object-contain"
         style={{
           ...style,
           transform: zoomed ? 'scale(2)' : 'scale(1)',

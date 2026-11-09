@@ -129,7 +129,7 @@ const CreatePostDialog = ({ onPostCreated }: Props) => {
             className="aspect-square rounded-lg border-2 border-dashed border-border flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden bg-muted"
           >
             {imagePreview ? (
-              <img src={imagePreview} alt="Anteprima" className="w-full h-full object-cover" />
+              <img src={imagePreview} alt="Anteprima" className="w-full h-full object-contain" />
             ) : (
           compressing ? (
               <div className="text-center">

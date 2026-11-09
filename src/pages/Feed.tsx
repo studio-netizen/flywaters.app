@@ -496,7 +496,7 @@ const Feed = () => {
                   )}
                 </div>
 
-                <div className="block w-full aspect-[4/5] bg-muted overflow-hidden">
+                <div className="block w-full bg-muted overflow-hidden">
                   <ZoomableImage
                     src={getThumbUrl(post.image_url) || getOptimizedImageUrl(post.image_url, 800, 75)}
                     srcSet={getThumbUrl(post.image_url) ? undefined : getImageSrcSet(post.image_url, [400, 800, 1200], 75)}

@@ -123,7 +123,7 @@ const Publish = () => {
         >
           {imagePreview ? (
             <>
-              <img src={imagePreview} alt="Anteprima" className="w-full h-full object-cover" />
+              <img src={imagePreview} alt="Anteprima" className="w-full h-full object-contain" />
               {loading && (
                 <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white gap-2">
                   <div className="text-3xl font-bold tabular-nums">{uploadProgress}%</div>
@@ -202,7 +202,7 @@ const Publish = () => {
       </div>
 
       {/* Sticky bottom publish bar */}
-      <div className="fixed bottom-0 inset-x-0 z-40 bg-background/95 backdrop-blur-md border-t border-border px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]">
+      <div className="fixed bottom-[calc(4rem+max(16px,env(safe-area-inset-bottom)))] inset-x-0 lg:bottom-0 lg:left-60 z-40 bg-background/95 backdrop-blur-md border-t border-border px-4 py-3">
         <div className="max-w-lg mx-auto">
           <Button
             size="lg"
