@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { verifyAdminSession, hashAdminToken } from "../_shared/admin-session.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -7,41 +8,19 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-admin-token, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-async function verifyToken(token: string, secret: string): Promise<boolean> {
-  try {
-    const [payloadB64, sigB64] = token.split(".");
-    if (!payloadB64 || !sigB64) return false;
-    const payload = JSON.parse(atob(payloadB64));
-    if (!payload.admin || payload.exp < Date.now()) return false;
-    const key = await crypto.subtle.importKey(
-      "raw",
-      new TextEncoder().encode(secret),
-      { name: "HMAC", hash: "SHA-256" },
-      false,
-      ["verify"]
-    );
-    const sig = Uint8Array.from(atob(sigB64), (c) => c.charCodeAt(0));
-    return await crypto.subtle.verify("HMAC", key, sig, new TextEncoder().encode(payloadB64));
-  } catch {
-    return false;
-  }
-}
-
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
-  const adminPassword = Deno.env.get("ADMIN_PASSWORD");
+  const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+  const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+  const supabase = createClient(supabaseUrl, serviceRoleKey);
   const token = req.headers.get("x-admin-token");
-  if (!token || !adminPassword || !(await verifyToken(token, adminPassword))) {
+  if (!token || !(await verifyAdminSession(token, supabase))) {
     return new Response(JSON.stringify({ error: "Unauthorized" }), {
       status: 401,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
-
-  const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-  const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-  const supabase = createClient(supabaseUrl, serviceRoleKey);
 
   const json = (data: unknown, status = 200) =>
     new Response(JSON.stringify(data), {
@@ -80,6 +59,14 @@ serve(async (req) => {
     const { action, ...params } = await req.json();
 
     switch (action) {
+      case "logout": {
+        const { error } = await supabase.from("admin_sessions")
+          .update({ revoked_at: new Date().toISOString() })
+          .eq("token_hash", await hashAdminToken(token));
+        if (error) return json({ error: "Logout failed" }, 503);
+        await audit("admin.logout", "admin_session");
+        return json({ ok: true });
+      }
       case "get_system_metrics": {
         const { data, error } = await supabase.rpc("admin_system_metrics");
         if (error) { console.error("admin-api db error:", error); return json({ error: "Internal server error" }, 500); }

@@ -1,5 +1,6 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { AwsClient } from "https://esm.sh/aws4fetch@1.0.20";
+import { verifyAdminSession } from "../_shared/admin-session.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -7,30 +8,6 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-admin-token",
 };
 
-async function verifyAdminToken(token: string, secret: string): Promise<boolean> {
-  try {
-    const [payloadB64, sigB64] = token.split(".");
-    if (!payloadB64 || !sigB64) return false;
-    const payload = JSON.parse(atob(payloadB64));
-    if (!payload.admin || payload.exp < Date.now()) return false;
-    const key = await crypto.subtle.importKey(
-      "raw",
-      new TextEncoder().encode(secret),
-      { name: "HMAC", hash: "SHA-256" },
-      false,
-      ["verify"],
-    );
-    const sig = Uint8Array.from(atob(sigB64), (c) => c.charCodeAt(0));
-    return await crypto.subtle.verify(
-      "HMAC",
-      key,
-      sig,
-      new TextEncoder().encode(payloadB64),
-    );
-  } catch {
-    return false;
-  }
-}
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
@@ -71,8 +48,10 @@ Deno.serve(async (req) => {
     // Auth: admin OR user where key contains their id
     let allowed = false;
     const adminToken = req.headers.get("x-admin-token");
-    const adminPassword = Deno.env.get("ADMIN_PASSWORD");
-    if (adminToken && adminPassword && await verifyAdminToken(adminToken, adminPassword)) {
+    const adminDb = adminToken ? createClient(
+      Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+    ) : null;
+    if (adminToken && adminDb && await verifyAdminSession(adminToken, adminDb)) {
       allowed = true;
     } else {
       const authHeader = req.headers.get("Authorization");

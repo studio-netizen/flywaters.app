@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { hashAdminToken } from "../_shared/admin-session.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -57,7 +58,7 @@ serve(async (req) => {
     }
 
     const exp = Date.now() + 24 * 60 * 60 * 1000;
-    const payloadB64 = btoa(JSON.stringify({ admin: true, exp }));
+    const payloadB64 = btoa(JSON.stringify({ admin: true, exp, sid: crypto.randomUUID() }));
     const key = await crypto.subtle.importKey(
       "raw",
       new TextEncoder().encode(adminPassword),
@@ -68,9 +69,23 @@ serve(async (req) => {
     const sig = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(payloadB64));
     const sigB64 = btoa(String.fromCharCode(...new Uint8Array(sig)));
 
+    if (!adminDb) {
+      return new Response(JSON.stringify({ error: "Session service unavailable" }), {
+        status: 503, headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    const token = `${payloadB64}.${sigB64}`;
+    const { error: sessionError } = await adminDb.from("admin_sessions").insert({
+      token_hash: await hashAdminToken(token), expires_at: new Date(exp).toISOString(),
+    });
+    if (sessionError) {
+      return new Response(JSON.stringify({ error: "Session service unavailable" }), {
+        status: 503, headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
     await writeAudit("admin.login", true);
 
-    return new Response(JSON.stringify({ token: `${payloadB64}.${sigB64}`, exp }), {
+    return new Response(JSON.stringify({ token, exp }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch {

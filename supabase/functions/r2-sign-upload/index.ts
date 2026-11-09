@@ -1,5 +1,6 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { AwsClient } from "https://esm.sh/aws4fetch@1.0.20";
+import { verifyAdminSession } from "../_shared/admin-session.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -23,30 +24,6 @@ const ALLOWED_CONTENT_TYPES = new Set([
 // Hard cap for signed uploads (bytes). Client compresses well below this.
 const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
 
-async function verifyAdminToken(token: string, secret: string): Promise<boolean> {
-  try {
-    const [payloadB64, sigB64] = token.split(".");
-    if (!payloadB64 || !sigB64) return false;
-    const payload = JSON.parse(atob(payloadB64));
-    if (!payload.admin || payload.exp < Date.now()) return false;
-    const key = await crypto.subtle.importKey(
-      "raw",
-      new TextEncoder().encode(secret),
-      { name: "HMAC", hash: "SHA-256" },
-      false,
-      ["verify"],
-    );
-    const sig = Uint8Array.from(atob(sigB64), (c) => c.charCodeAt(0));
-    return await crypto.subtle.verify(
-      "HMAC",
-      key,
-      sig,
-      new TextEncoder().encode(payloadB64),
-    );
-  } catch {
-    return false;
-  }
-}
 
 function sanitizeName(name: string): string {
   return name.replace(/[^a-zA-Z0-9._-]/g, "_").slice(-80);
@@ -92,7 +69,7 @@ Deno.serve(async (req) => {
     const contentType = String(body.contentType || "application/octet-stream");
     const filename = body.filename ? sanitizeName(String(body.filename)) : "file";
     const upsertPath = body.path ? String(body.path) : null;
-    const size = Number.isFinite(Number(body.size)) ? Number(body.size) : null;
+    const size = body.size;
 
     if (!ALLOWED_FOLDERS.has(folder)) {
       return new Response(JSON.stringify({ error: "Invalid folder" }), {
@@ -108,7 +85,12 @@ Deno.serve(async (req) => {
       });
     }
 
-    if (size !== null && (size <= 0 || size > MAX_UPLOAD_BYTES)) {
+    if (typeof size !== "number" || !Number.isSafeInteger(size) || size <= 0) {
+      return new Response(JSON.stringify({ error: "A positive integer file size is required" }), {
+        status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    if (size > MAX_UPLOAD_BYTES) {
       return new Response(JSON.stringify({ error: "File too large" }), {
         status: 413,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -120,8 +102,10 @@ Deno.serve(async (req) => {
     let isAdmin = false;
 
     const adminToken = req.headers.get("x-admin-token");
-    const adminPassword = Deno.env.get("ADMIN_PASSWORD");
-    if (adminToken && adminPassword && await verifyAdminToken(adminToken, adminPassword)) {
+    const adminDb = adminToken ? createClient(
+      Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+    ) : null;
+    if (adminToken && adminDb && await verifyAdminSession(adminToken, adminDb)) {
       isAdmin = true;
     } else {
       const authHeader = req.headers.get("Authorization");
@@ -178,13 +162,13 @@ Deno.serve(async (req) => {
     url.searchParams.set("X-Amz-Expires", "300");
     const signHeaders: Record<string, string> = { "content-type": contentType };
     // Binding the exact byte length into the signature prevents oversized uploads.
-    if (size !== null) signHeaders["content-length"] = String(size);
+    signHeaders["content-length"] = String(size);
     const signed = await aws.sign(
       new Request(url.toString(), {
         method: "PUT",
         headers: signHeaders,
       }),
-      { aws: { signQuery: true } },
+      { aws: { signQuery: true, allHeaders: true } },
     );
 
     return new Response(
