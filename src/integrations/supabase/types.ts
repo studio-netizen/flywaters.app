@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      admin_sessions: {
+        Row: {
+          created_at: string
+          expires_at: string
+          revoked_at: string | null
+          token_hash: string
+        }
+        Insert: {
+          created_at?: string
+          expires_at: string
+          revoked_at?: string | null
+          token_hash: string
+        }
+        Update: {
+          created_at?: string
+          expires_at?: string
+          revoked_at?: string | null
+          token_hash?: string
+        }
+        Relationships: []
+      }
       app_settings: {
         Row: {
           id: string
