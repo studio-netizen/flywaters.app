@@ -1,4 +1,3 @@
-// @vitest-environment node
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import ts from 'typescript';
@@ -19,7 +18,7 @@ async function handler() {
     async sign(request: Request, opts: any) {
       signedHeaders = request.headers;
       options = opts;
-      return request;
+      return { url: 'https://storage.invalid/test' };
     }
   }
   // Use a syntactically valid endpoint while other mocked settings remain fake.
