@@ -10,16 +10,26 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { AdminAuthProvider, useAdminAuth } from "@/contexts/AdminAuthContext";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import Feed from "./pages/Feed";
-import Auth from "./pages/Auth";
-import Profile from "./pages/Profile";
-import ProfileByHandle from "./pages/ProfileByHandle";
-import SpotDetail from "./pages/SpotDetail";
-import NotFound from "./pages/NotFound";
-import AdminLogin from "./pages/admin/AdminLogin";
+
+
+
+
+
+
+
 import AdminLayout from "./components/admin/AdminLayout";
-import ResetPassword from "./pages/ResetPassword";
+
 import InstallBanner from "./components/InstallBanner";
+
+// Keep the feed as the entry route; defer other screens until navigation.
+const Auth = lazy(() => import("./pages/Auth"));
+const Profile = lazy(() => import("./pages/Profile"));
+const ProfileByHandle = lazy(() => import("./pages/ProfileByHandle"));
+const SpotDetail = lazy(() => import("./pages/SpotDetail"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword"));
+const Feed = lazy(() => import("./pages/Feed"));
 
 // Lazy load secondary/heavy pages so they don't bloat the initial bundle
 const Messages = lazy(() => import("./pages/Messages"));
