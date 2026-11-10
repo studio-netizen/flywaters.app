@@ -3,7 +3,8 @@ import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import ErrorBoundary from "./components/ErrorBoundary";
 import "./index.css";
-import "./i18n";
+import i18n from "./i18n";
+import { toast } from "sonner";
 
 // Microsoft Clarity — only in production when project ID is configured
 const clarityId = import.meta.env.VITE_CLARITY_PROJECT_ID;
@@ -27,9 +28,7 @@ createRoot(document.getElementById("root")!).render(
 );
 
 // Connectivity toasts: warn on offline, confirm on reconnect.
-(async () => {
-  const { toast } = await import("sonner");
-  const { default: i18n } = await import("./i18n");
+(() => {
   let wasOffline = !navigator.onLine;
   window.addEventListener("offline", () => {
     wasOffline = true;
