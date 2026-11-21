@@ -2,11 +2,25 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { Home, Map, PlusSquare, Bell, User } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
+
+// Warm up tab pages in the background so tapping them opens instantly.
+let warmed = false;
+const warmTabs = () => {
+  if (warmed) return; warmed = true;
+  const run = () => {
+    import('@/pages/SpotMap'); import('@/pages/Publish');
+    import('@/pages/Notifications'); import('@/pages/Search');
+  };
+  const w = window as unknown as { requestIdleCallback?: (cb: () => void) => void };
+  if (w.requestIdleCallback) w.requestIdleCallback(run); else setTimeout(run, 2000);
+};
 
 const BottomNav = () => {
   const { user } = useAuth();
   const location = useLocation();
   const { t } = useTranslation();
+  useEffect(() => { if (user) warmTabs(); }, [user]);
 
   const links = [
     { to: '/', icon: Home, label: t('nav.feed') },
@@ -25,6 +39,10 @@ const BottomNav = () => {
             <NavLink
               key={to}
               to={to}
+              onClick={(e) => {
+                // Instagram-like: tapping the active tab scrolls back to the top.
+                if (isActive) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+              }}
               className="flex flex-col items-center justify-center gap-0.5 flex-1 h-full relative"
             >
               <div className={`flex items-center justify-center w-10 h-8 rounded-full transition-colors ${

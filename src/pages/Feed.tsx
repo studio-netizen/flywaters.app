@@ -58,6 +58,7 @@ interface SuggestedUser {
 const PAGE_SIZE = 10;
 
 const feedCache: Record<string, any[]> = {};
+const feedScroll: Record<string, number> = {};
 
 const Feed = () => {
   const { user, loading: authLoading } = useAuth();
@@ -95,6 +96,8 @@ const Feed = () => {
       // Instant render from memory (Instagram-like), refresh silently.
       setPosts(cached);
       setLoading(false);
+      const y = feedScroll[feedMode];
+      if (y) requestAnimationFrame(() => window.scrollTo(0, y));
       fetchPosts(0, true, true);
     } else {
       setPosts([]);
@@ -103,6 +106,14 @@ const Feed = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, feedMode, feedMode === 'following' ? followedUsers : null]);
+
+  // Remember scroll position so returning to the feed lands where you left.
+  useEffect(() => {
+    const mode = feedMode;
+    const onScroll = () => { feedScroll[mode] = window.scrollY; };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [feedMode]);
 
   const fetchPosts = async (offset: number, replace = false, silent = false) => {
     if (replace) { if (!silent) setLoading(true); setLoadError(false); } else setLoadingMore(true);
@@ -159,7 +170,7 @@ const Feed = () => {
     if (!sentinelRef.current) return;
     const obs = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) loadMore();
-    }, { rootMargin: '300px' });
+    }, { rootMargin: '1200px' });
     obs.observe(sentinelRef.current);
     return () => obs.disconnect();
   }, [loadMore]);
