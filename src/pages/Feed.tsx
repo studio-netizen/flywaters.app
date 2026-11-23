@@ -427,9 +427,9 @@ const Feed = () => {
               icon={MapPin}
               title={feedMode === 'following' ? t('feed.noFollowingPosts') : t('emptyStates.feedTitle')}
               description={feedMode === 'following' ? t('feed.followOthers') : t('emptyStates.feedDesc')}
-              actionLabel={t('emptyStates.feedCta')}
-              actionTo="/mappa"
-              actionIcon={MapPin}
+              actionLabel={feedMode === 'following' ? t('emptyStates.findAnglersCta') : t('emptyStates.firstPhotoCta')}
+              actionTo={feedMode === 'following' ? '/cerca' : '/publish'}
+              actionIcon={feedMode === 'following' ? Users : Camera}
             />
 
             {suggestedUsers.length > 0 && (
