@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 const Landing = lazy(() => import('./Landing'));
 import { supabase } from '@/integrations/supabase/client';
-import { Heart, MessageCircle, Share2, MapPin, Send, Search, Bookmark, BookmarkCheck } from 'lucide-react';
+import { Heart, MessageCircle, Share2, MapPin, Send, Search, Bookmark, BookmarkCheck, Camera, Users } from 'lucide-react';
 import { useSavedPosts } from '@/hooks/useSavedPosts';
 import PostActionsMenu from '@/components/PostActionsMenu';
 import PostComments from '@/components/PostComments';
