@@ -17,7 +17,7 @@ const FISHING_TAGS = [
 ];
 
 interface OnboardingWizardProps {
-  onComplete: () => void;
+  onComplete: (publishFirstPhoto?: boolean) => void;
 }
 
 const OnboardingWizard = ({ onComplete }: OnboardingWizardProps) => {
