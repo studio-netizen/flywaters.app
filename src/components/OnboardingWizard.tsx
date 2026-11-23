@@ -97,7 +97,7 @@ const OnboardingWizard = ({ onComplete }: OnboardingWizardProps) => {
     );
   };
 
-  const handleComplete = async () => {
+  const handleComplete = async (publishFirstPhoto = false) => {
     if (!user) return;
     setSaving(true);
     try {
