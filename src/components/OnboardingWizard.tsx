@@ -116,8 +116,9 @@ const OnboardingWizard = ({ onComplete }: OnboardingWizardProps) => {
       if (fishingTypes.length > 0) updates.fishing_types = fishingTypes;
       if (avatarUrl) updates.avatar_url = avatarUrl;
 
-      await supabase.from('profiles').update(updates).eq('user_id', user.id);
-      onComplete();
+      const { error } = await supabase.from('profiles').update(updates).eq('user_id', user.id);
+      if (error) throw error;
+      onComplete(publishFirstPhoto);
     } catch (err: any) {
       toast.error(err.message || 'Errore durante il salvataggio');
     } finally {
