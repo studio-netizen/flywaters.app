@@ -525,7 +525,9 @@
     "messagesCta": "Trova pescatori",
     "postsOwnTitle": "Condividi la tua prima cattura",
     "postsOwnDesc": "Una foto, la posizione e la tecnica: contribuisci alla community.",
-    "postsOwnCta": "Crea il tuo primo post"
+    "postsOwnCta": "Crea il tuo primo post",
+    "firstPhotoCta": "Condividi la tua prima foto",
+    "findAnglersCta": "Trova pescatori"
   },
   "fab": {
     "open": "Apri azioni rapide",
