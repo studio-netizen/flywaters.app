@@ -525,7 +525,9 @@
     "messagesCta": "Find anglers",
     "postsOwnTitle": "Share your first catch",
     "postsOwnDesc": "A photo, the location, and your technique — contribute to the community.",
-    "postsOwnCta": "Create your first post"
+    "postsOwnCta": "Create your first post",
+    "firstPhotoCta": "Share your first photo",
+    "findAnglersCta": "Find anglers"
   },
   "fab": {
     "open": "Open quick actions",
