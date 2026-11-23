@@ -533,7 +533,11 @@ const Feed = () => {
                     <button onClick={() => toggleLike(post.id)} className="transition-transform active:scale-125">
                       <Heart className={`w-6 h-6 ${likedPosts.has(post.id) ? 'fill-destructive text-destructive' : 'text-foreground hover:text-muted-foreground'}`} />
                     </button>
-                    <button className="text-foreground hover:text-muted-foreground">
+                    <button
+                      onClick={() => document.getElementById(`comments-${post.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                      className="text-foreground hover:text-muted-foreground"
+                      aria-label="Vai ai commenti"
+                    >
                       <MessageCircle className="w-6 h-6" />
                     </button>
                     <button onClick={() => handleShare(post)} className="text-foreground hover:text-muted-foreground">
