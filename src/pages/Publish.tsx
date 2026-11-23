@@ -191,13 +191,6 @@ const Publish = () => {
         <TagChipSelector label="Attrezzatura utilizzata" options={FISHING_GEAR} selected={selectedGear} onChange={setSelectedGear} />
         <TagChipSelector label="Schiuse / Hatch attive" options={HATCH_ACTIVITIES} selected={selectedHatch} onChange={setSelectedHatch} />
 
-        <div className="flex items-center justify-between py-2">
-          <div>
-            <p className="text-sm font-medium text-foreground">Pubblico</p>
-            <p className="text-xs text-muted-foreground">{isPublic ? 'Visibile a tutti' : 'Solo follower'}</p>
-          </div>
-          <Switch checked={isPublic} onCheckedChange={setIsPublic} />
-        </div>
       </div>
 
       {/* Sticky bottom publish bar */}
