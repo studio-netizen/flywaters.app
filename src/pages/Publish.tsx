@@ -36,7 +36,6 @@ const Publish = () => {
   const [loading, setLoading] = useState(false);
   const [compressing, setCompressing] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
-  const [isPublic, setIsPublic] = useState(true);
   const [location, setLocation] = useState<LocationResult | null>(null);
   const [showLocationPicker, setShowLocationPicker] = useState(false);
 
