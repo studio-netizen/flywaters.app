@@ -308,7 +308,14 @@ const Feed = () => {
   if (!user) return <Suspense fallback={<div className="min-h-screen bg-background" />}><Landing /></Suspense>;
 
   if (showOnboarding) {
-    return <OnboardingWizard onComplete={() => setShowOnboarding(false)} />;
+    return (
+      <OnboardingWizard
+        onComplete={(publishFirstPhoto) => {
+          setShowOnboarding(false);
+          if (publishFirstPhoto) navigate('/publish');
+        }}
+      />
+    );
   }
 
 
