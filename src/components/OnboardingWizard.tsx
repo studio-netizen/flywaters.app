@@ -310,7 +310,7 @@ const OnboardingWizard = ({ onComplete }: OnboardingWizardProps) => {
               </div>
 
               <Button
-                onClick={handleComplete}
+                onClick={() => handleComplete(true)}
                 disabled={saving}
                 className="w-full h-12 rounded-full text-sm font-semibold bg-[#242242] text-[#f5f0e8] hover:opacity-90"
               >
