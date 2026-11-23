@@ -575,11 +575,13 @@ const Feed = () => {
                   )}
                 </div>
 
-                <PostComments
-                  postId={post.id}
-                  commentCount={post.comment_count}
-                  onCommentAdded={() => fetchPosts(0, true)}
-                />
+                <div id={`comments-${post.id}`}>
+                  <PostComments
+                    postId={post.id}
+                    commentCount={post.comment_count}
+                    onCommentAdded={() => fetchPosts(0, true)}
+                  />
+                </div>
               </article>
             ))}
 
