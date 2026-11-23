@@ -431,7 +431,7 @@ const Feed = () => {
         ) : posts.length === 0 ? (
           <>
             <EmptyState
-              icon={MapPin}
+              icon={feedMode === 'following' ? Users : Camera}
               title={feedMode === 'following' ? t('feed.noFollowingPosts') : t('emptyStates.feedTitle')}
               description={feedMode === 'following' ? t('feed.followOthers') : t('emptyStates.feedDesc')}
               actionLabel={feedMode === 'following' ? t('emptyStates.findAnglersCta') : t('emptyStates.firstPhotoCta')}
