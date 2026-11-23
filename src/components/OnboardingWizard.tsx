@@ -314,7 +314,7 @@ const OnboardingWizard = ({ onComplete }: OnboardingWizardProps) => {
                 disabled={saving}
                 className="w-full h-12 rounded-full text-sm font-semibold bg-[#242242] text-[#f5f0e8] hover:opacity-90"
               >
-                {saving ? 'Salvataggio...' : 'Inizia ad esplorare →'}
+                {saving ? 'Salvataggio...' : 'Pubblica la tua prima foto →'}
               </Button>
             </div>
           )}
